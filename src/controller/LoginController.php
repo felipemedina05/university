@@ -15,22 +15,32 @@ class LoginController {
         {
             echo "datos incorrectos" ;
         }else 
-            {
-                        
-                //agregar la verificacion de la contraseña hash con passwor veryfy//    
-                session_start();
-                $_SESSION["user"] = $data;
-                if ($data["rol_id" ]  === 1 ) 
-                    {
-                        header("Location: /src/views/admin.php");
-                    } elseif ($data["rol_id" ]  ===2 ) 
-                        {
-                            header("Location: /src/views/maestro.php");
-                        } else
-                            {
-                                header("Location: /src/views/alumno.php");
 
-                            }
+            $password = $request["contrasena"] ;
+        
+    { if ( $password === $data["contrasena"]/* password_verify($password,$data["contrasena"]) */)
+                 {
+              
+                    //agregar la verificacion de la contraseña hash con passwor veryfy//    
+                    session_start();
+                    $_SESSION["user"] = $data;
+                    if ($data["rol_id" ]  === 1 ) 
+                        {   
+                            header("Location: /src/views/admin/admin.php");
+                        } elseif ($data["rol_id" ]  ===2 ) 
+                            {
+                                header("Location: /src/views/maestro/maestro.php");
+                            } else
+                                {
+                                    header("Location: /src/views/alumno/alumno.php");
+
+                                }
+                 }else 
+                    {
+                        echo "ese passwor es errado";
+                    }
+                    
+                   
             } 
             
         
