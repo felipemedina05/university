@@ -9,15 +9,17 @@ class UserController {
        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/login.php";
        
     }
-/* 
-    public static function vadmin()
+
+    public static function addAlumno($data)
     {
-        header("Location: /src/views/admin.php");
+        $addAlumno=Usuario::addUsuario($data);
+        $estudiantes=Usuario::findId(3);
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/alumno.php";
     }
-*/
+
     public static function updateEstudiante($data)
     {
-        $uestudiantes= Usuario::updateestudiante($data);
+        $updateEstudiantes= Usuario::updateestudiante($data);
         $estudiantes=Usuario::findId(3);
         
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/alumno.php";

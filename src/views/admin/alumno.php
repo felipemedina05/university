@@ -149,25 +149,27 @@ $usuario= $_SESSION["user"];
                                         </button>
                                         <div class="px-6 py-6 lg:px-4  ">
                                             <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Agregar Alumno</h3>
-                                            <form class="space-y-6" action="/index.php" method="post">
+                                            <form class="space-y-6" action="/addAlumno" method="post">
                                                 <div>
                                                     <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DNI</label>
-                                                    <input type="text" name="" id="" placeholder="Ingrese la matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="dni" id="" placeholder="Ingrese la matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
-                                                    <input type="text" name="" id="" placeholder="Ingrese email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="correo" id="" placeholder="Ingrese email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre(S)</label>
-                                                    <input type="text" name="" id="" placeholder="Ingrese nombre(s)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="nombre" id="" placeholder="Ingrese nombre(s)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido(s)</label>
-                                                    <input type="text" name="" id="" placeholder="Ingresa los apellidos " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="apellido" id="" placeholder="Ingresa los apellidos " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
-                                                    <input type="text" name="" id="" placeholder="Ingresa la direccion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="direccion" id="" placeholder="Ingresa la direccion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
-                                                    <input type="date" name="" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-
+                                                    <input type="text" name="fecha_nacimiento" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="rol_id" value="3" class="hidden">
+                                                    <input type="text" name="contrasena" value="alumno" class="hidden">
+                                                    
                                             </form>
                                             <div class="flex mt-5 ml-96 gap-1 justify-end">
-                                                <button type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">close</button>
-                                                <button type="submit" class="w-full text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
+                                                <button type="reset" class="w-auto mt-1 text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">close</button>
+                                                <button type="submit" class="w-auto mt-1 text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
                                             </div>
                                         </div>
                                     </div>

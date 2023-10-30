@@ -56,6 +56,24 @@ class Usuario
 
         
     }
+
+    public static function addUsuario($data)
+    {   
+        $dni=$data["dni"];
+        $correo=$data["correo"];
+        $nombre=$data["nombre"];
+        $apellido=$data["apellido"];
+        $direccion=$data["direccion"];
+        $fecha_nacimiento=$data["fecha_nacimiento"];
+        $rol_id="3";
+        $contrasena="1234";
+
+        $res = DB::query("INSERT INTO usuarios (dni,correo,nombre,apellido,direccion,fecha_nacimiento,rol_id,contrasena) 
+                            VALUES ('$dni','$correo','$nombre','$apellido','$direccion','$fecha_nacimiento','$rol_id','$contrasena');" );
+        $data = $res->fetchAll(PDO::FETCH_ASSOC);
+
+        
+    }
 }
 
 ?>

@@ -26,12 +26,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         case '/maestro':
             $LoginController->login($_POST);
             break;
+
         case '/alumno':
             $LoginController->login($_POST);
             break;
+
         case '/updateEstudiante':
             $UserController->updateEstudiante($_POST);
-            break;   
+            break;  
+        
+        case '/addAlumno':
+            $UserController->addAlumno($_POST);
+            break;  
+            
           
         
         default:
