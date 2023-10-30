@@ -24,13 +24,13 @@ if (!isset($_SESSION["user"])) {
                     <li><a src="/logout">=</a></li>
 
                 </ul>
-                <!-- Letrero "Home" -->
+
                 <span>Home</span>
             </div>
             <div class=" flex relative m-auto group mr-20  ">
-                <!-- Rol -->
+
                 <span class="justify-end mr-2">Rol</span>
-                <!-- Flecha abajo para desplegar el menú -->
+
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 text-gray-400 cursor-pointer">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
@@ -134,42 +134,42 @@ if (!isset($_SESSION["user"])) {
                         <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="ml-auto justify-end block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                             Agregar alumno
                         </button>
-                        <!-- Main modal -->
+                        <!--  modal para agregar -->
                         <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                             <div class="relative w-full max-w-md max-h-full">
                                 <!-- Modal content -->
                                 <div class="fixed inset-0 flex items-start justify-start z-50">
-                                <div class=" relative bg-white rounded-lg shadow dark:bg-gray-700 m-auto">
-                                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
-                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                        </svg>
-                                        <span class="sr-only">Close modal</span>
-                                    </button>
-                                    <div class="px-6 py-6 lg:px-4  ">
-                                        <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Agregar Alumno</h3>
-                                        <form class="space-y-6" action="/index.php" method="post">
-                                            <div>
-                                                <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DNI</label>
-                                                <input type="text" name="" id="" placeholder="Ingrese la matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
-                                                <input type="text" name="" id="" placeholder="Ingrese email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre(S)</label>
-                                                <input type="text" name="" id="" placeholder="Ingrese nombre(s)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido(s)</label>
-                                                <input type="text" name="" id="" placeholder="Ingresa los apellidos " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
-                                                <input type="text" name="" id="" placeholder="Ingresa la direccion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
-                                                <input type="date" name="" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                    <div class=" relative bg-white rounded-lg shadow dark:bg-gray-700 m-auto">
+                                        <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
+                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                            </svg>
+                                            <span class="sr-only">Close modal</span>
+                                        </button>
+                                        <div class="px-6 py-6 lg:px-4  ">
+                                            <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Agregar Alumno</h3>
+                                            <form class="space-y-6" action="/index.php" method="post">
+                                                <div>
+                                                    <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DNI</label>
+                                                    <input type="text" name="" id="" placeholder="Ingrese la matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
+                                                    <input type="text" name="" id="" placeholder="Ingrese email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre(S)</label>
+                                                    <input type="text" name="" id="" placeholder="Ingrese nombre(s)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido(s)</label>
+                                                    <input type="text" name="" id="" placeholder="Ingresa los apellidos " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
+                                                    <input type="text" name="" id="" placeholder="Ingresa la direccion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
+                                                    <input type="date" name="" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
 
-                                        </form>
-                                        <div class="flex mt-5 ml-96 gap-1 justify-end">
-                                            <button type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">close</button>
-                                            <button type="submit" class="w-full text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
+                                            </form>
+                                            <div class="flex mt-5 ml-96 gap-1 justify-end">
+                                                <button type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">close</button>
+                                                <button type="submit" class="w-full text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                             </div>
                         </div>
@@ -242,7 +242,7 @@ if (!isset($_SESSION["user"])) {
                                     05-ago-2023
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    <a href="#" id="editModalLink" class="text-blue-500 hover:underline">Editar</a>
                                     <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">borrar</a>
                                 </td>
                             </tr>
@@ -250,14 +250,52 @@ if (!isset($_SESSION["user"])) {
 
                         </tbody>
                     </table>
+                    <!-- Modal de edición (inicialmente oculto) -->
+                    <div id="editModal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50  items-center justify-center">
+                        <div class="fixed inset-0 flex items-start justify-start z-50">
+                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 m-auto">
+                                <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="editModal">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                                <div class="px-6 py-6 lg:px-4">
+                                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Editar Elemento</h3>
+                                    <form class="space-y-6" action="/index.php" method="post">
+                                        <div>
+                                            <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DNI</label>
+                                            <input type="text" name="" id="" placeholder="Ingrese la matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
+                                            <input type="text" name="" id="" placeholder="Ingrese email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre(S)</label>
+                                            <input type="text" name="" id="" placeholder="Ingrese nombre(s)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido(s)</label>
+                                            <input type="text" name="" id="" placeholder="Ingresa los apellidos " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
+                                            <input type="text" name="" id="" placeholder="Ingresa la direccion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
+                                            <input type="date" name="" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                        </div>
+                                        <div class="flex mt-5 ml-96 gap-1 justify-end">
+                                            <button type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</button>
+                                            <button type="submit" class="w-full text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
 
-
-
-
             </div>
+
+
+
+
         </div>
+    </div>
     </div>
     </div>
 
@@ -278,6 +316,7 @@ if (!isset($_SESSION["user"])) {
         }
     });
 
+    // control de modal para agregar
     const modalToggle = document.querySelector('[data-modal-toggle="authentication-modal"]');
     const modal = document.getElementById('authentication-modal');
 
@@ -301,6 +340,35 @@ if (!isset($_SESSION["user"])) {
             modal.setAttribute('aria-hidden', 'true');
         }
     });
+
+     
+
+    // Función para mostrar el modal de edición
+    
+    const editModalLink = document.getElementById('editModalLink');
+    const editModal = document.getElementById('editModal');
+
+    // Función para mostrar el modal de edición
+    function openEditModal() {
+        editModal.classList.remove('hidden');
+    }
+
+    // Función para ocultar el modal de edición
+    function closeEditModal() {
+        editModal.classList.add('hidden');
+    }
+
+    editModalLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        openEditModal();
+    });
+
+    // Agregar un controlador de eventos para cerrar el modal cuando se hace clic en el botón "Close"
+    const closeEditModalButton = editModal.querySelector('[data-modal-hide="editModal"]');
+    closeEditModalButton.addEventListener('click', () => {
+        closeEditModal();
+    });
 </script>
+</body>
 
 </html>
