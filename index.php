@@ -29,7 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         case '/alumno':
             $LoginController->login($_POST);
             break;
-
+        case '/updateEstudiante':
+            $UserController->updateEstudiante($_POST);
+            break;   
           
         
         default:
@@ -50,11 +52,11 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
             $UserController->Vadmin();
             break;    
                 
-        
-         case '/maestro':
-            $UserController->Vmaestro();
-            break;    
         */
+         case '/updateEstudiante':
+            $UserController->estudiante();
+            break;    
+        
             case '/editaAlumno':
             $UserController->editaAlumno($_GET["id"]);
             break;  

@@ -6,8 +6,6 @@ class UserController {
     public static function index()
     {   
        $usuario = Usuario::all(); 
-       
-       
        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/login.php";
        
     }
@@ -16,16 +14,19 @@ class UserController {
     {
         header("Location: /src/views/admin.php");
     }
-
-    public static function vmaestro()
-    {
-        header("Location: /src/views/maestro.php");
-    }
 */
+    public static function updateEstudiante($data)
+    {
+        $uestudiantes= Usuario::updateestudiante($data);
+        $estudiantes=Usuario::findId(3);
+        
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/alumno.php";
+     
+        
+    }   
+
     public static function editaAlumno($id)
     {   
-       
-
         $editestudiante= Usuario::editestudiante($id);
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/editaAlumno.php";
     } 
@@ -33,14 +34,12 @@ class UserController {
     public static function estudiante()
     {   
         $estudiantes = usuario::findId(3);
-        
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/alumno.php";
     }
 
     public static function maestro()
     {   
         $maestros = usuario::findId(2);
-        
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/maestro.php";
     }
 

@@ -38,8 +38,22 @@ class Usuario
         $data = $res->fetchAll(PDO::FETCH_ASSOC);
 
         return $data;
-
         
+    }
+    public static function updateestudiante($data)
+    {   
+        $dni=$data["dni"];
+        
+        $nombre=$data["nombre"];
+        $apellido=$data["apellido"];
+        $direccion=$data["direccion"];
+        $fecha_nacimiento=$data["fecha_nacimiento"];
+        $id=$data["id"];
+        $rol_id=$data["rol_id"];
+
+        $res = DB::query("UPDATE usuarios SET dni='$dni',nombre='$nombre',apellido='$apellido',direccion='$direccion',fecha_nacimiento  = '$fecha_nacimiento',rol_id='$rol_id' WHERE id='$id';");
+        $data = $res->fetchAll(PDO::FETCH_ASSOC);
+
         
     }
 }
