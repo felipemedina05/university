@@ -22,6 +22,26 @@ class Usuario
         return $data;
         
     }
+    public static function findId($id)
+    {
+        $res = DB::query("select * from usuarios where rol_id = $id ;");
+        $data = $res->fetchAll(PDO::FETCH_ASSOC);
+
+        return $data;
+
+        
+        
+    }
+    public static function editestudiante($id)
+    {
+        $res = DB::query("select * from usuarios where id = $id ;");
+        $data = $res->fetchAll(PDO::FETCH_ASSOC);
+
+        return $data;
+
+        
+        
+    }
 }
 
 ?>

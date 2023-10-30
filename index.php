@@ -29,6 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         case '/alumno':
             $LoginController->login($_POST);
             break;
+
+          
         
         default:
             echo "no se encontro la url por post";
@@ -44,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
             $UserController->index();
             break;
         
-        case '/admin':
+       /*  case '/admin':
             $UserController->Vadmin();
             break;    
                 
@@ -52,10 +54,14 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
          case '/maestro':
             $UserController->Vmaestro();
             break;    
-        
-        case '/alumno':
-            $UserController->Valumno();
-            break;   
+        */
+            case '/editaAlumno':
+            $UserController->editaAlumno($_GET["id"]);
+            break;  
+
+            case '/estudiante':
+                $UserController->estudiante();
+                break;   
 
         case '/logout':
             $LoginController->logout();
