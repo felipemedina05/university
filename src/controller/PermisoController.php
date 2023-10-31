@@ -1,46 +1,46 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/src/model/Maestro.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/src/model/Permiso.php";
 
-class MaestroController {
+class PermisoController {
 
 
 
-    public static function addMaestro($data)
+    public static function addPermiso($data)
     {     
-        $addMaestro=Maestro::addMaestro($data);
-        $maestros=Maestro::findId(2);
+        $addPermiso=Permiso::addPermiso($data);
+        $permisos=Permiso::findId(2);
         
-        header("Location: /maestro" );
+        header("Location: /permiso" );
     }
 
-    public static function updateMaestro($data)
+    public static function updatePermiso($data)
     {
-        $updateMaestros= Maestro::updateMaestro($data);
+        $updatePermisos= Permiso::updatePermiso($data);
         
-        header("Location: /maestro" );
+        header("Location: /permiso" );
      
         
     }   
 
-    public static function editaMaestro($id)
+    public static function editaPermiso($id)
     {   
-        $editaMaestro= Maestro::editaMaestro($id);
+        $editaPermiso= Permiso::editaPermiso($id);
         
-        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/maestros/editaMaestros.php";
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/permisos/editaPermisos.php";
     } 
 
-    public static function eliminaMaestro($id)
+    public static function eliminaPermiso($id)
     {   
-        $eliminaMaestro= Maestro::eliminaMaestro($id);
+        $eliminaPermiso= Permiso::eliminaPermiso($id);
         
-        header("Location: /maestro" );
+        header("Location: /permiso" );
     } 
 
 
-    public static function maestro()
+    public static function permiso()
     {   
-        $maestros = Maestro::findMaestros(2);
-        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/maestros/maestros.php";
+        $permisos = Permiso::findPermisos(2);
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/permisos/permisos.php";
     }
 
       

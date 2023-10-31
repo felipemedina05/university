@@ -149,14 +149,14 @@ $usuario = $_SESSION["user"];
                                         </button>
                                         <div class="px-6 py-6 lg:px-4  ">
                                             <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Agregar Clase</h3>
-                                            <form class="space-y-6" action="/addAlumno" method="post">
+                                            <form class="space-y-6" action="/addClase" method="post">
                                                 <div>
-                                                    <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre de la Materia</label>
-                                                    <input type="text" name="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre de la Materia</label>
+                                                    <input type="text" name="clase_nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Maestros disponibles para la clase</label>
                                                     <select type="list" name="nombre" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                                                        <?php foreach ($maestros as $maestro) { ?>
-                                                            <option value="<?=$maestro['id']?>"><?=$maestro['nombre']?></option>
+                                                        <?php foreach ($clases as $clase) { ?>
+                                                            <option value="<?=$clase['clase_id']?>"><?=$clase['nombre']?></option>
                                                         <?php } ?>
 
                                                     </select>
@@ -165,7 +165,7 @@ $usuario = $_SESSION["user"];
 
                                             </form>
                                             <div class="flex mt-5 ml-96 gap-1 justify-end">
-                                                <button type="reset" class="w-auto mt-1 text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">close</button>
+                                                <a href="/clases" class="w-auto mt-1 text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">close</a>
                                                 <button type="submit" class="w-auto mt-1 text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
                                             </div>
                                         </div>
@@ -207,9 +207,7 @@ $usuario = $_SESSION["user"];
                                 <th scope="col" class="px-6 py-3">
                                     Maestro
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Correo
-                                </th>
+                                
                                 <th scope="col" class="px-6 py-3">
                                     Alumnos inscritos
                                 </th>
@@ -220,29 +218,24 @@ $usuario = $_SESSION["user"];
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($estudiantes as $alumno) { ?>
+                            <?php foreach ($clases as $clase) { ?>
                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <?= $alumno["id"] ?>
+                                        <?= $clase["maestro_id"] ?>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <?= $alumno["dni"] ?>
+                                        <?= $clase["clase_nombre"] ?>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <?= $alumno["nombre"] ?>
+                                        <?= $clase["nombre"] ?>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <?= $alumno["correo"] ?>
+                                        
                                     </td>
+                                
                                     <td class="px-6 py-4">
-                                        <?= $alumno["direccion"] ?>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <?= $alumno["fecha_nacimiento"] ?>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="/editaAlumno?id=<?= $alumno["id"] ?>" class="text-blue-500 hover:underline">Editar</a>
-                                        <a href="/eliminaAlumno?id=<?= $alumno["id"] ?>" class="font-medium text-red-600 dark:text-red-500 hover:underline">borrar</a>
+                                        <a href="/editaClase?id=<?= $clase["maestro_id"] ?>" class="text-blue-500 hover:underline">Editar</a>
+                                        <a href="/eliminaClase?id=<?= $clase["maestro_id"] ?>" class="font-medium text-red-600 dark:text-red-500 hover:underline">borrar</a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -257,21 +250,21 @@ $usuario = $_SESSION["user"];
                                             <span class="sr-only">Close modal</span>
                                         </button>
                                         <div class="px-6 py-6 lg:px-4">
-                                            <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Editar Alumno</h3>
-                                            <form class="space-y-6" action="/up" method="post">
+                                            <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Editar Clase</h3>
+                                            <form class="space-y-6" action="/updateClase" method="post">
                                                 <div>
-                                                    <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DNI</label>
-                                                    <input type="text" name="dni" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
-                                                    <input type="text" name="correo" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre(S)</label>
-                                                    <input type="text" name="nombre" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido(s)</label>
-                                                    <input type="text" name="apellido" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
-                                                    <input type="text" name="direccion" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
-                                                    <input type="date" name="fecha_nacimiento" id="" Class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre de la Clase</label>
+                                                    <input type="text" name="clase_nonmbre" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Maestro Asignado</label>
+                                                    <select  name="nombre" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >
+                                                    <?php foreach ($clases as $clase) { ?>
+                                                            <option value="<?=$clase['id']?>"><?=$clase['nombre']?></option>
+                                                        <?php } ?>
+
+
+                                                    </select>
+                                                
+                                                
                                                 </div>
                                                 <div class="flex mt-5 ml-96 gap-1 justify-end">
                                                     <a href="/estudiante" type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</a>

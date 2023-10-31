@@ -2,17 +2,18 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/LoginController.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/UserController.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/MaestroController.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/ClasesController.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/PermisoController.php");
 
 $LoginController = new LoginController();
 $UserController = new UserController();
 $MaestroController = new MaestroController();
-
+$ClaseController = new ClaseController();
+$PermisoController = new PermisoController();
 
 $fullurl = $_SERVER["REQUEST_URI"];
 $urlpartida = explode("?", $fullurl);
 $url = $urlpartida[0];
-
-
 
 if ($_SERVER["REQUEST_METHOD"] === "POST")
 {
@@ -104,20 +105,34 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
             break; 
          /*  crud de admin para clases */
          case '/updateClase':
-            $MaestroController->Clase();
+            $ClaseController->Clase();
             break;    
         
         case '/editaClase':
-            $MaestroController->editaClase($_GET["id"]);
+            $ClaseController->editaClase($_GET["id"]);
             break;  
 
         case '/eliminaClase':
-            $MaestroController->eliminaClase($_GET["id"]);
+            $ClaseController->eliminaClase($_GET["id"]);
             break;  
 
-        case '/Clase':
-            $MaestroController->Clase();
-            break;       
+        case '/clases':
+            $ClaseController->Clase();
+            break;      
+            
+        /*  crud de admin para permisos */
+        case '/updatePermiso':
+            $PermisoController->Permiso();
+            break;    
+        
+        case '/editaClase':
+            $PermisoController->editaPermiso($_GET["id"]);
+            break;  
+
+        
+        case '/permisos':
+            $PermisoController->Permiso();
+            break;   
 
 
 

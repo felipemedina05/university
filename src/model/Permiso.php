@@ -2,7 +2,7 @@
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/config/DB.php");
 
-class Maestro
+class Permiso
 
 {
     public static function all()
@@ -29,7 +29,7 @@ class Maestro
 
         return $data;
     }
-    public static function editaMaestro($id)
+    public static function editaPermiso($id)
     {
         $res = DB::query("select * from usuarios where id = $id ;");
         $data = $res->fetchAll(PDO::FETCH_ASSOC);
@@ -37,15 +37,15 @@ class Maestro
         return $data;
     }
 
-    public static function eliminaMaestro($id)
+    public static function eliminaPermiso($id)
     {
         
-        $resClase = DB::query("DELETE from clases_maestros where maestro_id = $id ;");
+        $resClase = DB::query("DELETE from clases_permisos where permiso_id = $id ;");
         $res = DB::query("DELETE from usuarios where id = $id ;");
         
     }
 
-    public static function updateMaestro($data)
+    public static function updatePermiso($data)
     {
         
         $id = $data["id"];
@@ -59,14 +59,14 @@ class Maestro
        
         $res = DB::query("UPDATE usuarios SET nombre='$nombre',apellido='$apellido',direccion='$direccion',fecha_nacimiento  = '$fecha_nacimiento' WHERE id='$id';");
        
-        $resClase = DB::query("UPDATE clases_maestros SET clase_id='$clase_id' WHERE maestro_id='$id';");
+        $resClase = DB::query("UPDATE clases_permisos SET clase_id='$clase_id' WHERE permiso_id='$id';");
 
         
     }
 
     
 
-    public static function addMaestro($data)
+    public static function addPermiso($data)
     {
        var_dump($data);
         $correo = $data["correo"];
@@ -89,19 +89,19 @@ class Maestro
 
         var_dump($data);
         
-        $clase = DB::query("INSERT INTO clases_maestros (clase_id,maestro_id) VALUES ('$clase_id','$id');");
+        $clase = DB::query("INSERT INTO clases_permisos (clase_id,permiso_id) VALUES ('$clase_id','$id');");
 
 
         
     }
 
 
-    public static function findMaestros($id)
+    public static function findPermisos($id)
     {
         $res = DB::query("SELECT u.id ,u.nombre,u.correo,u.direccion,u.fecha_nacimiento,cm.clase_id,c.clase_nombre 
         from
             usuarios u
-        inner join clases_maestros cm on u.id = cm.maestro_id 
+        inner join clases_permisos cm on u.id = cm.permiso_id 
         inner join clases c on cm.clase_id = c.id
         where
             rol_id = $id ;");

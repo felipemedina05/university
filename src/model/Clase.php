@@ -2,7 +2,7 @@
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/config/DB.php");
 
-class Maestro
+class Clase
 
 {
     public static function all()
@@ -29,7 +29,7 @@ class Maestro
 
         return $data;
     }
-    public static function editaMaestro($id)
+    public static function editaClase($id)
     {
         $res = DB::query("select * from usuarios where id = $id ;");
         $data = $res->fetchAll(PDO::FETCH_ASSOC);
@@ -37,15 +37,15 @@ class Maestro
         return $data;
     }
 
-    public static function eliminaMaestro($id)
+    public static function eliminaClase($id)
     {
         
-        $resClase = DB::query("DELETE from clases_maestros where maestro_id = $id ;");
+        $resClase = DB::query("DELETE from clases_clases where clase_id = $id ;");
         $res = DB::query("DELETE from usuarios where id = $id ;");
         
     }
 
-    public static function updateMaestro($data)
+    public static function updateClase($data)
     {
         
         $id = $data["id"];
@@ -59,14 +59,14 @@ class Maestro
        
         $res = DB::query("UPDATE usuarios SET nombre='$nombre',apellido='$apellido',direccion='$direccion',fecha_nacimiento  = '$fecha_nacimiento' WHERE id='$id';");
        
-        $resClase = DB::query("UPDATE clases_maestros SET clase_id='$clase_id' WHERE maestro_id='$id';");
+        $resClase = DB::query("UPDATE clases_clases SET clase_id='$clase_id' WHERE clase_id='$id';");
 
         
     }
 
     
 
-    public static function addMaestro($data)
+    public static function addClase($data)
     {
        var_dump($data);
         $correo = $data["correo"];
@@ -89,22 +89,26 @@ class Maestro
 
         var_dump($data);
         
-        $clase = DB::query("INSERT INTO clases_maestros (clase_id,maestro_id) VALUES ('$clase_id','$id');");
+        $clase = DB::query("INSERT INTO clases_clases (clase_id,clase_id) VALUES ('$clase_id','$id');");
 
 
         
     }
 
 
-    public static function findMaestros($id)
+    public static function findClases($id)
     {
-        $res = DB::query("SELECT u.id ,u.nombre,u.correo,u.direccion,u.fecha_nacimiento,cm.clase_id,c.clase_nombre 
-        from
-            usuarios u
-        inner join clases_maestros cm on u.id = cm.maestro_id 
-        inner join clases c on cm.clase_id = c.id
-        where
-            rol_id = $id ;");
+        $res = DB::query("SELECT
+        c.id ,
+        c.clase_nombre,
+        cm.maestro_id,
+        u.nombre
+    from
+        clases c
+    inner join clases_maestros cm 
+    inner join usuarios u on cm.maestro_id = u.id  
+    where
+        rol_id = 2;");
             
         $data = $res->fetchAll(PDO::FETCH_ASSOC);
 
@@ -112,13 +116,6 @@ class Maestro
         return $data ;
     }
 
-    public static function findClases($id)
-    {
-        
-        $res = DB::query("select * from clases");
-        $data = $res->fetch(PDO::FETCH_ASSOC);
-        
-        return $data;
-    }
+  
 
 }

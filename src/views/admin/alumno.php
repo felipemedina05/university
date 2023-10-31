@@ -246,8 +246,8 @@ $usuario= $_SESSION["user"];
                                 <?=$alumno["fecha_nacimiento"] ?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="/editaAlumno?id=<?=$alumno["id"]?>"  class="text-blue-500 hover:underline">Editar</a>
-                                    <a href="/eliminaAlumno?id=<?=$alumno["id"]?>" class="font-medium text-red-600 dark:text-red-500 hover:underline">borrar</a>
+                                    <a href="/editaAlumno?id=<?=$alumno["id"]?>"  class="text-blue-500 hover:underline"><img src="/assets/edit.svg"></img></a>
+                                    <a href="/eliminaAlumno?id=<?=$alumno["id"]?>" class="font-medium text-red-600 dark:text-red-500 hover:underline"><img src="/assets/delete.svg"></img></a>
                                 </td>
                             </tr>
                             <?php } ?>
