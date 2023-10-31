@@ -4,7 +4,7 @@ if (!isset($_SESSION["user"])) {
     header("location: /index.php");
 }
 
-$usuario= $_SESSION["user"];
+$usuario = $_SESSION["user"];
 
 ?>
 
@@ -49,7 +49,7 @@ $usuario= $_SESSION["user"];
 
 
 
-       
+
 
         <aside id="default-sidebar" class=" fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
             <div class="h-full px-3 py-4 overflow-y-auto dark:bg-gray-50 bg-gray-800">
@@ -66,7 +66,7 @@ $usuario= $_SESSION["user"];
                     <li>
                         <p href="#" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
 
-                            <span class="flex-1 ml-3 whitespace-nowrap"><?= $usuario ["correo"]?></span>
+                            <span class="flex-1 ml-3 whitespace-nowrap"><?= $usuario["correo"] ?></span>
                         </p>
 
                     </li>
@@ -90,7 +90,7 @@ $usuario= $_SESSION["user"];
                         </a>
                     </li>
                     <li>
-                        <a href="/maestro.php" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
+                        <a href="/maestros.php" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                                 <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                             </svg>
@@ -117,23 +117,23 @@ $usuario= $_SESSION["user"];
                     </li>
                 </ul>
             </div>
-        </aside> 
- 
+        </aside>
+
         <div class=" p-4 sm:ml-64">
-        <div class="flex items-center gap-60 h-10 border-dotted border-red-800 ">
-                    <h1 class="text-2xl text-gray-400 dark:text-gray-500 justify-start">
-                        lista de alumnos
-                    </h1>
-                    <p class="w-max ml-auto border-white rounded-md justify-end">home / Alumnos </p>
-                </div>
+            <div class="flex items-center gap-60 h-10 border-dotted border-red-800 ">
+                <h1 class="text-2xl text-gray-400 dark:text-gray-500 justify-start">
+                    Lista de Clases
+                </h1>
+                <p class="w-max ml-auto border-white rounded-md justify-end">home / Clases </p>
+            </div>
             <div class=" bg bg-white p-4 border-2 border-gray-200  rounded-lg dark:border-gray-700">
-                
+
                 <div class="">
 
                     <div class="flex items-center  h-10 rounded bg-wite  dark:bg-gray-800 mb-1">
-                        <span>Informacion alumnos</span>
+                        <span class="text-gray-400 dark:text-gray-500 justify-start">Informacion de Clases</span>
                         <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="ml-auto justify-end block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                            Agregar alumno
+                            Agregar Clase
                         </button>
                         <!--  modal para agregar -->
                         <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -148,31 +148,25 @@ $usuario= $_SESSION["user"];
                                             <span class="sr-only">Close modal</span>
                                         </button>
                                         <div class="px-6 py-6 lg:px-4  ">
-                                            <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Agregar Alumno</h3>
-                                            <form class="space-y-6" action="/index.php" method="post">
+                                            <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Agregar Clase</h3>
+                                            <form class="space-y-6" action="/addAlumno" method="post">
                                                 <div>
-                                                    <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DNI</label>
-                                                    <input type="text" name="dni" id="" placeholder="Ingrese la matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
-                                                    <input type="text" name="correo" id="" placeholder="Ingrese email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre(S)</label>
-                                                    <input type="text" name="nombre" id="" placeholder="Ingrese nombre(s)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido(s)</label>
-                                                    <input type="text" name="apellido" id="" placeholder="Ingresa los apellidos " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
-                                                    <input type="text" name="direccion" id="" placeholder="Ingresa la direccion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
-                                                    <input type="date" name="fecha_nacimiento" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <input type="date" name="estado" id="" class="hidden">
-                                                    <input type="date" name="rol_id" id="" class="hidden">
+                                                    <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre de la Materia</label>
+                                                    <input type="text" name="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Maestros disponibles para la clase</label>
+                                                    <select type="list" name="nombre" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                                        <?php foreach ($maestros as $maestro) { ?>
+                                                            <option value="<?=$maestro['id']?>"><?=$maestro['nombre']?></option>
+                                                        <?php } ?>
 
-
-
+                                                    </select>
+                                                    <input type="text" name="clase_id" value="" class="hidden">
+                                                    <input type="text" name="contrasena" value="" class="hidden">
 
                                             </form>
                                             <div class="flex mt-5 ml-96 gap-1 justify-end">
-                                                <a type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">close</a>
-                                                <a type="submit" class="w-full text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</a>
+                                                <button type="reset" class="w-auto mt-1 text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">close</button>
+                                                <button type="submit" class="w-auto mt-1 text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
                                             </div>
                                         </div>
                                     </div>
@@ -208,54 +202,52 @@ $usuario= $_SESSION["user"];
                                     #
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    DNI
+                                    Clase
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Nombre
+                                    Maestro
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Correo
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Direccion
+                                    Alumnos inscritos
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    fecha nacimiento
-                                </th>
+                                
                                 <th scope="col" class="px-6 py-3">
                                     Acciones
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($editestudiante as $alumno)  { ?>
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                <?=$alumno["id"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$alumno["dni"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$alumno["nombre"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$alumno["correo"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$alumno["direccion"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$alumno["fecha_nacimiento"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="/editaAlumno?id=<?=$alumno["id"]?>"  class="text-blue-500 hover:underline">Editar</a>
-                                    <a href="/eliminaAlumno?id=<?=$alumno["id"]?>" class="font-medium text-red-600 dark:text-red-500 hover:underline">borrar</a>
-                                </td>
-                            </tr>
+                            <?php foreach ($estudiantes as $alumno) { ?>
+                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <?= $alumno["id"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $alumno["dni"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $alumno["nombre"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $alumno["correo"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $alumno["direccion"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $alumno["fecha_nacimiento"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="/editaAlumno?id=<?= $alumno["id"] ?>" class="text-blue-500 hover:underline">Editar</a>
+                                        <a href="/eliminaAlumno?id=<?= $alumno["id"] ?>" class="font-medium text-red-600 dark:text-red-500 hover:underline">borrar</a>
+                                    </td>
+                                </tr>
                             <?php } ?>
                             <!-- Modal de edición -->
-                            <div id="editModal" class=" fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50  items-center justify-center">
+                            <div id="editModal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50  items-center justify-center">
                                 <div class="fixed inset-0 flex items-start justify-start z-50">
                                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 m-auto">
                                         <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="editModal">
@@ -266,32 +258,30 @@ $usuario= $_SESSION["user"];
                                         </button>
                                         <div class="px-6 py-6 lg:px-4">
                                             <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Editar Alumno</h3>
-                                            <form class="space-y-6" action="/updateEstudiante" method="post">
+                                            <form class="space-y-6" action="/up" method="post">
                                                 <div>
                                                     <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DNI</label>
-                                                    <input type="text" name="dni" value = "<?=$editestudiante[0]["dni"]?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="dni" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
-                                                    <input type="text" name="correo" disabled  value= "<?=$editestudiante[0]["correo"]?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="correo" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre(S)</label>
-                                                    <input type="text" name="nombre" value = "<?=$editestudiante[0]["nombre"]?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="nombre" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido(s)</label>
-                                                    <input type="text" name="apellido" value = "<?=$editestudiante[0]["apellido"]?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="apellido" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
-                                                    <input type="text" name="direccion" value = "<?=$editestudiante[0]["direccion"]?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="direccion" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
-                                                    <input type="text" name="fecha_nacimiento" value = "<?=$editestudiante[0]["fecha_nacimiento"]?>" id="" Class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <input type="text" name="id" value = "<?=$editestudiante[0]["id"]?>id=" Class="hidden bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                                                    <input type="text" name="rol_id"value = "<?=$editestudiante[0]["rol_id"]?> id=" Class="hidden bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">                                               
+                                                    <input type="date" name="fecha_nacimiento" id="" Class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                 </div>
                                                 <div class="flex mt-5 ml-96 gap-1 justify-end">
-                                                    <a href="/estudiante" class="w-auto text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</a>
-                                                    <button type="submit" class="w-auto text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Guardar cambios</button>
+                                                    <a href="/estudiante" type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</a>
+                                                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
                         </tbody>
                     </table>

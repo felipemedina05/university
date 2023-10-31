@@ -131,7 +131,7 @@ $usuario= $_SESSION["user"];
                 <div class="">
 
                     <div class="flex items-center  h-10 rounded bg-wite  dark:bg-gray-800 mb-1">
-                        <span>Informacion alumnos</span>
+                        <span class="text-gray-400 dark:text-gray-500 justify-start">Informacion de alumnos</span>
                         <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="ml-auto justify-end block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                             Agregar alumno
                         </button>
@@ -149,7 +149,7 @@ $usuario= $_SESSION["user"];
                                         </button>
                                         <div class="px-6 py-6 lg:px-4  ">
                                             <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Agregar Alumno</h3>
-                                            <form class="space-y-6" action="/index.php" method="post">
+                                            <form class="space-y-6" action="/addAlumno" method="post">
                                                 <div>
                                                     <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DNI</label>
                                                     <input type="text" name="dni" id="" placeholder="Ingrese la matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
@@ -162,17 +162,14 @@ $usuario= $_SESSION["user"];
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
                                                     <input type="text" name="direccion" id="" placeholder="Ingresa la direccion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
-                                                    <input type="date" name="fecha_nacimiento" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <input type="date" name="estado" id="" class="hidden">
-                                                    <input type="date" name="rol_id" id="" class="hidden">
-
-
-
-
+                                                    <input type="text" name="fecha_nacimiento" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="rol_id" value="3" class="hidden">
+                                                    <input type="text" name="contrasena" value="alumno" class="hidden">
+                                                    
                                             </form>
                                             <div class="flex mt-5 ml-96 gap-1 justify-end">
-                                                <a type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">close</a>
-                                                <a type="submit" class="w-full text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</a>
+                                                <button type="reset" class="w-auto mt-1 text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">close</button>
+                                                <button type="submit" class="w-auto mt-1 text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
                                             </div>
                                         </div>
                                     </div>
@@ -228,7 +225,7 @@ $usuario= $_SESSION["user"];
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($editestudiante as $alumno)  { ?>
+                            <?php foreach ($estudiantes as $alumno)  { ?>
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 <?=$alumno["id"] ?>
@@ -255,7 +252,7 @@ $usuario= $_SESSION["user"];
                             </tr>
                             <?php } ?>
                             <!-- Modal de edición -->
-                            <div id="editModal" class=" fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50  items-center justify-center">
+                            <div id="editModal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50  items-center justify-center">
                                 <div class="fixed inset-0 flex items-start justify-start z-50">
                                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 m-auto">
                                         <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="editModal">
@@ -266,26 +263,24 @@ $usuario= $_SESSION["user"];
                                         </button>
                                         <div class="px-6 py-6 lg:px-4">
                                             <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Editar Alumno</h3>
-                                            <form class="space-y-6" action="/updateEstudiante" method="post">
+                                            <form class="space-y-6" action="/up" method="post">
                                                 <div>
                                                     <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DNI</label>
-                                                    <input type="text" name="dni" value = "<?=$editestudiante[0]["dni"]?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="dni"  id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
-                                                    <input type="text" name="correo" disabled  value= "<?=$editestudiante[0]["correo"]?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="correo" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre(S)</label>
-                                                    <input type="text" name="nombre" value = "<?=$editestudiante[0]["nombre"]?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="nombre" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido(s)</label>
-                                                    <input type="text" name="apellido" value = "<?=$editestudiante[0]["apellido"]?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="apellido" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
-                                                    <input type="text" name="direccion" value = "<?=$editestudiante[0]["direccion"]?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="direccion" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
-                                                    <input type="text" name="fecha_nacimiento" value = "<?=$editestudiante[0]["fecha_nacimiento"]?>" id="" Class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <input type="text" name="id" value = "<?=$editestudiante[0]["id"]?>id=" Class="hidden bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                                                    <input type="text" name="rol_id"value = "<?=$editestudiante[0]["rol_id"]?> id=" Class="hidden bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">                                               
+                                                    <input type="date" name="fecha_nacimiento" id="" Class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                 </div>
                                                 <div class="flex mt-5 ml-96 gap-1 justify-end">
-                                                    <a href="/estudiante" class="w-auto text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</a>
-                                                    <button type="submit" class="w-auto text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Guardar cambios</button>
+                                                    <a href="/estudiante" type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</a>
+                                                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
                                                 </div>
                                             </form>
                                         </div>

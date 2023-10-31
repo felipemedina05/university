@@ -1,9 +1,11 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/LoginController.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/UserController.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/MaestroController.php");
 
 $LoginController = new LoginController();
 $UserController = new UserController();
+$MaestroController = new MaestroController();
 
 
 $fullurl = $_SERVER["REQUEST_URI"];
@@ -38,6 +40,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         case '/addAlumno':
             $UserController->addAlumno($_POST);
             break;  
+        
+        case '/updateMaestro':
+            $MaestroController->updateMaestro($_POST);
+            break;  
+        
+        case '/addMaestro':
+            $MaestroController->addMaestro($_POST);
+            break;  
             
           
         
@@ -54,26 +64,43 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
         case "/index.php":
             $UserController->index();
             break;
+
+        case '/logout':
+            $LoginController->logout();
+            break; 
         
-       /*  case '/admin':
-            $UserController->Vadmin();
-            break;    
-                
-        */
+       /*  crud de admin para estudiantes */
          case '/updateEstudiante':
             $UserController->estudiante();
             break;    
         
-            case '/editaAlumno':
+        case '/editaAlumno':
             $UserController->editaAlumno($_GET["id"]);
             break;  
 
-            case '/estudiante':
-                $UserController->estudiante();
-                break;   
+        case '/eliminaAlumno':
+            $UserController->eliminaAlumno($_GET["id"]);
+            break;  
 
-        case '/logout':
-            $LoginController->logout();
+        case '/estudiante':
+            $UserController->estudiante();
+            break;   
+
+         /*  crud de admin para maestros */
+        case '/updateMaestro':
+            $MaestroController->maestro();
+            break;    
+        
+        case '/editaMaestro':
+            $MaestroController->editaMaestro($_GET["id"]);
+            break;  
+
+        case '/eliminaMaestro':
+            $MaestroController->eliminaMaestro($_GET["id"]);
+            break;  
+
+        case '/maestro':
+            $MaestroController->maestro();
             break; 
 
        

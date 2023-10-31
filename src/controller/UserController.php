@@ -33,17 +33,21 @@ class UserController {
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/editaAlumno.php";
     } 
 
+    public static function eliminaAlumno($id)
+    {   
+        $eliminaAlumno= Usuario::eliminaAlumno($id);
+        $estudiantes=Usuario::findId(3);
+        
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/alumno.php";
+    } 
+
     public static function estudiante()
     {   
         $estudiantes = usuario::findId(3);
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/alumno.php";
     }
 
-    public static function maestro()
-    {   
-        $maestros = usuario::findId(2);
-        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/maestro.php";
-    }
+   
 
      public static function login($request)
     {

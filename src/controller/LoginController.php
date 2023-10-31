@@ -29,7 +29,7 @@ class LoginController {
                             header("Location: /src/views/admin/admin.php");
                         } elseif ($data["rol_id" ]  ===2 ) 
                             {
-                                header("Location: /src/views/maestro/maestro.php");
+                                header("Location: /maestro");
                             } else
                                 {
                                     header("Location: /src/views/alumno/alumno.php");

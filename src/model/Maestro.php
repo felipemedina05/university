@@ -2,7 +2,7 @@
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/config/DB.php");
 
-class Usuario
+class Maestro
 
 {
     public static function all()
@@ -59,24 +59,51 @@ class Usuario
         $data = $res->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function addUsuario($data)
+    
+
+    public static function addMaestro($data)
     {
-        $dni = $data["dni"];
+       var_dump($data);
         $correo = $data["correo"];
         $nombre = $data["nombre"];
         $apellido = $data["apellido"];
         $direccion = $data["direccion"];
         $fecha_nacimiento = $data["fecha_nacimiento"];
-        $rol_id = "3";
+        $rol_id = "2";
         $contrasena = "1234";
+        $clase_id=$data["clase_id"];
+        
 
-        $res = DB::query("INSERT INTO usuarios (dni,correo,nombre,apellido,direccion,fecha_nacimiento,rol_id,contrasena) 
-                            VALUES ('$dni','$correo','$nombre','$apellido','$direccion','$fecha_nacimiento','$rol_id','$contrasena');");
-        $data = $res->fetchAll(PDO::FETCH_ASSOC);
+        $usuario = DB::query("INSERT INTO usuarios (correo,nombre,apellido,direccion,fecha_nacimiento,rol_id,contrasena) 
+        VALUES ('$correo','$nombre','$apellido','$direccion','$fecha_nacimiento','$rol_id','$contrasena');");
+
+        $res = DB::query("select * from usuarios where correo = '$correo'");
+        $data = $res->fetch(PDO::FETCH_ASSOC);
+
+        $id=$data["id"];
+
+        var_dump($data);
+        
+        $clase = DB::query("INSERT INTO clases_maestros (clase_id,maestro_id) VALUES ('$clase_id','$id');");
+
+
+        
     }
 
-   
+    public static function findMaestros($id)
+    {
+        $res = DB::query("SELECT u.id ,u.nombre,u.correo,u.direccion,u.fecha_nacimiento,cm.clase_id,c.clase_nombre 
+        from
+            usuarios u
+        inner join clases_maestros cm on u.id = cm.maestro_id 
+        inner join clases c on cm.clase_id = c.id
+        where
+            rol_id = $id ;");
+        $data = $res->fetchAll(PDO::FETCH_ASSOC);
 
-    
+        
+
+        return $data;
+    }
 
 }
