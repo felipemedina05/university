@@ -102,6 +102,24 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
         case '/maestro':
             $MaestroController->maestro();
             break; 
+         /*  crud de admin para clases */
+         case '/updateClase':
+            $MaestroController->Clase();
+            break;    
+        
+        case '/editaClase':
+            $MaestroController->editaClase($_GET["id"]);
+            break;  
+
+        case '/eliminaClase':
+            $MaestroController->eliminaClase($_GET["id"]);
+            break;  
+
+        case '/Clase':
+            $MaestroController->Clase();
+            break;       
+
+
 
        
         default:

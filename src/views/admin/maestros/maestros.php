@@ -4,7 +4,7 @@ if (!isset($_SESSION["user"])) {
     header("location: /index.php");
 }
 
-$usuario= $_SESSION["user"];
+$usuario = $_SESSION["user"];
 
 ?>
 
@@ -49,9 +49,9 @@ $usuario= $_SESSION["user"];
 
 
 
-       
 
-        <aside id="default-sidebar" class=" fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+
+        <aside id="default-sidebar" class="  fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
             <div class="h-full px-3 py-4 overflow-y-auto dark:bg-gray-50 bg-gray-800">
                 <ul class="space-y-2 font-medium">
                     <li class=" border-b border-white">
@@ -66,7 +66,7 @@ $usuario= $_SESSION["user"];
                     <li>
                         <p href="#" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
 
-                            <span class="flex-1 ml-3 whitespace-nowrap"><?= $usuario ["correo"]?></span>
+                            <span class="flex-1 ml-3 whitespace-nowrap"><?= $usuario["correo"] ?></span>
                         </p>
 
                     </li>
@@ -117,17 +117,17 @@ $usuario= $_SESSION["user"];
                     </li>
                 </ul>
             </div>
-        </aside> 
- 
+        </aside>
+
         <div class=" p-4 sm:ml-64">
-        <div class="flex items-center gap-60 h-10 border-dotted border-red-800 ">
-                    <h1 class="text-2xl text-gray-400 dark:text-gray-500 justify-start">
-                        lista de maestros
-                    </h1>
-                    <p class="w-max ml-auto border-white rounded-md justify-end">home / Maestros </p>
-                </div>
+            <div class="flex items-center gap-60 h-10 border-dotted border-red-800 ">
+                <h1 class="text-2xl text-gray-400 dark:text-gray-500 justify-start">
+                    lista de maestros
+                </h1>
+                <p class="w-max ml-auto border-white rounded-md justify-end">home / Maestros </p>
+            </div>
             <div class=" bg bg-white p-4 border-2 border-gray-200  rounded-lg dark:border-gray-700">
-                
+
                 <div class="">
 
                     <div class="flex items-center  h-10 rounded bg-wite  dark:bg-gray-800 mb-1">
@@ -162,15 +162,19 @@ $usuario= $_SESSION["user"];
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
                                                     <input type="text" name="fecha_nacimiento" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Clase asignada</label>
-                                                    <select type="text" name="clase_id" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >
+                                                    <select type="text" name="clase_id" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                                        
                                                         <option value="1">Matematica</option>
                                                         <option value="2">Castellano</option>
                                                         <option value="3">Ingles</option>
+                                                        
+
+                                                        
                                                     </select>
 
-                                                   <!--  <input type="text" name="rol_id" value="3" class="hidden">
+                                                    <!--  <input type="text" name="rol_id" value="3" class="hidden">
                                                     <input type="text" name="contrasena" value="alumno" class="hidden"> -->
-                                                    
+
                                             </form>
                                             <div class="flex mt-5 ml-96 gap-1 justify-end">
                                                 <a href="/maestro" class="w-auto mt-1 text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">close</a>
@@ -218,7 +222,7 @@ $usuario= $_SESSION["user"];
                                 <th scope="col" class="px-6 py-3">
                                     Direccion
                                 </th>
-                                
+
                                 <th scope="col" class="px-6 py-3">
                                     Fecha Nacimiento
                                 </th>
@@ -232,31 +236,31 @@ $usuario= $_SESSION["user"];
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($maestros as $maestro)  { ?>
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                <?=$maestro["id"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$maestro["nombre"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$maestro["correo"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$maestro["direccion"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$maestro["fecha_nacimiento"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$maestro["clase_nombre"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="/editaMaestro?id=<?=$maestro["id"]?>"  class="text-blue-500 hover:underline">Editar</a>
-                                    <a href="/eliminaMaestro?id=<?=$maestro["id"]?>" class="font-medium text-red-600 dark:text-red-500 hover:underline">borrar</a>
-                                </td>
-                            </tr>
+                            <?php foreach ($maestros as $maestro) { ?>
+                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <?= $maestro["id"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $maestro["nombre"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $maestro["correo"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $maestro["direccion"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $maestro["fecha_nacimiento"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                     <?= $maestro["clase_nombre"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="/editaMaestro?id=<?= $maestro["id"] ?>" class="text-blue-500 hover:underline">Editar</a>
+                                        <a href="/eliminaMaestro?id=<?= $maestro["id"] ?>" class="font-medium text-red-600 dark:text-red-500 hover:underline">borrar</a>
+                                    </td>
+                                </tr>
                             <?php } ?>
                             <!-- Modal de edición -->
                             <div id="editModal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50  items-center justify-center">
@@ -270,7 +274,7 @@ $usuario= $_SESSION["user"];
                                         </button>
                                         <div class="px-6 py-6 lg:px-4">
                                             <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Editar Maestro</h3>
-                                            <form class="space-y-6" action="/up" method="post">
+                                            <form class="space-y-6" action="/updateMaestro" method="post">
                                                 <div>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
                                                     <input type="text" name="correo" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
@@ -286,7 +290,7 @@ $usuario= $_SESSION["user"];
                                                     <select type="date" name="fecha_nacimiento" id="" Class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                         <option value="1">Matematicas</option>
                                                         <option value="2">Castellano</option>
-                                                        <option value="3">ingles</option>                               
+                                                        <option value="3">ingles</option>
                                                     </select>
                                                 </div>
                                                 <div class="flex mt-5 ml-96 gap-1 justify-end">
@@ -297,7 +301,7 @@ $usuario= $_SESSION["user"];
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
                         </tbody>
                     </table>

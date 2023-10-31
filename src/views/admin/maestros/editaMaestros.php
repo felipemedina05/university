@@ -51,7 +51,7 @@ $usuario= $_SESSION["user"];
 
        
 
-        <aside id="default-sidebar" class=" fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+        <aside id="default-sidebar" class="  fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
             <div class="h-full px-3 py-4 overflow-y-auto dark:bg-gray-50 bg-gray-800">
                 <ul class="space-y-2 font-medium">
                     <li class=" border-b border-white">
@@ -210,6 +210,9 @@ $usuario= $_SESSION["user"];
                                     #
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Nombre
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Email
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -229,7 +232,7 @@ $usuario= $_SESSION["user"];
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($maestros as $maestro)  { ?>
+                            <?php foreach ($editaMaestro as $maestro)  { ?>
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 <?=$maestro["id"] ?>
@@ -247,7 +250,7 @@ $usuario= $_SESSION["user"];
                                 <?=$maestro["fecha_nacimiento"] ?>
                                 </td>
                                 <td class="px-6 py-4">
-                                <?=$maestro["clase_nombre"] ?>
+                                <?= $maestro["rol_id"] ?>
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="/editaMaestro?id=<?=$maestro["id"]?>"  class="text-blue-500 hover:underline">Editar</a>
@@ -267,24 +270,27 @@ $usuario= $_SESSION["user"];
                                         </button>
                                         <div class="px-6 py-6 lg:px-4">
                                             <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Editar Maestro</h3>
-                                            <form class="space-y-6" action="/up" method="post">
+                                            <form class="space-y-6" action="/updateMaestro" method="post">
                                                 <div>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
-                                                    <input type="text" name="correo" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input disabled type="text" name="correo" value="<?= $maestro["correo"] ?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre(S)</label>
-                                                    <input type="text" name="nombre" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="nombre" value="<?= $maestro["nombre"] ?> " id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido(s)</label>
-                                                    <input type="text" name="apellido" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="apellido" value="<?= $maestro["apellido"] ?> " id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
-                                                    <input type="text" name="direccion" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="direccion" value="<?= $maestro["direccion"] ?> " id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
-                                                    <input type="date" name="fecha_nacimiento" id="" Class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
-                                                    <select type="date" name="fecha_nacimiento" id="" Class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <input type="text" name="fecha_nacimiento" value="<?= $maestro["fecha_nacimiento"] ?> "id="" Class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Clase Asignada</label>
+                                                    <select class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"    type="date" name="clase_id" value="<?= $maestro["clase_id"] ?>" id="" Class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                         <option value="1">Matematicas</option>
                                                         <option value="2">Castellano</option>
                                                         <option value="3">ingles</option>                               
                                                     </select>
+
+                                                    <input type="text" name="id" value="<?= $maestro["id"] ?> "id="" Class="hidden">
+
                                                 </div>
                                                 <div class="flex mt-5 ml-96 gap-1 justify-end">
                                                     <a href="/maestro" type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</a>
