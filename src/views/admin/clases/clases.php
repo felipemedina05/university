@@ -156,12 +156,10 @@ $usuario = $_SESSION["user"];
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Maestros disponibles para la clase</label>
                                                     <select type="list" name="nombre" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                                         <?php foreach ($clases as $clase) { ?>
-                                                            <option value="<?=$clase['clase_id']?>"><?=$clase['nombre']?></option>
+                                                            <option value="<?=$clase['maestro_id']?>"><?=$clase['nombre']?></option>
                                                         <?php } ?>
 
                                                     </select>
-                                                    <input type="text" name="clase_id" value="" class="hidden">
-                                                    <input type="text" name="contrasena" value="" class="hidden">
 
                                             </form>
                                             <div class="flex mt-5 ml-96 gap-1 justify-end">

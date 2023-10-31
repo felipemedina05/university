@@ -69,27 +69,27 @@ class Clase
     public static function addClase($data)
     {
        var_dump($data);
-        $correo = $data["correo"];
+        $clase_nombre = $data["clase_nombre"];
         $nombre = $data["nombre"];
-        $apellido = $data["apellido"];
-        $direccion = $data["direccion"];
-        $fecha_nacimiento = $data["fecha_nacimiento"];
-        $rol_id = "2";
-        $contrasena = "1234";
-        $clase_id=$data["clase_id"];
+        
         
 
-        $usuario = DB::query("INSERT INTO usuarios (correo,nombre,apellido,direccion,fecha_nacimiento,rol_id,contrasena) 
-        VALUES ('$correo','$nombre','$apellido','$direccion','$fecha_nacimiento','$rol_id','$contrasena');");
+        $usuario = DB::query("INSERT INTO clases (clase_nombre) 
+        VALUES ('$clase_nombre');");
 
-        $res = DB::query("select * from usuarios where correo = '$correo'");
+        $res = DB::query("select * from clases where clase_nombre = '$clase_nombre'");
         $data = $res->fetch(PDO::FETCH_ASSOC);
 
         $id=$data["id"];
 
+        $res = DB::query("select * from clases_maestros where maestro_id = '$id'");
+        $dataclase = $res->fetch(PDO::FETCH_ASSOC);
+
+        $claseid=$dataclase["id"];
+
         var_dump($data);
         
-        $clase = DB::query("INSERT INTO clases_clases (clase_id,clase_id) VALUES ('$clase_id','$id');");
+        $clase = DB::query("INSERT INTO clases_maestros (clase_id,maestro_id) VALUES ('$claseid','$id');");
 
 
         

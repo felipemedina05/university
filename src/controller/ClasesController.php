@@ -10,7 +10,7 @@ class ClaseController {
         $addClase=Clase::addClase($data);
         $clases=Clase::findId(2);
         
-        header("Location: /clase" );
+        header("Location: /clases" );
     }
 
     public static function updateClase($data)

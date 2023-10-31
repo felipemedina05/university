@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         case '/alumno':
             $LoginController->login($_POST);
             break;
-
+            /* metodos alumno post */
         case '/updateEstudiante':
             $UserController->updateEstudiante($_POST);
             break;  
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         case '/addAlumno':
             $UserController->addAlumno($_POST);
             break;  
-        
+            /* metodos maestro post */
         case '/updateMaestro':
             $MaestroController->updateMaestro($_POST);
             break;  
@@ -49,7 +49,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         case '/addMaestro':
             $MaestroController->addMaestro($_POST);
             break;  
+            /* metodos clase post */
+        case '/updateClase':
+            $ClaseController->updateClase($_POST);
+            break;  
             
+        case '/addClase':
+            $ClaseController->addClase($_POST);
+            break;             
+           /* metodos permisos post */
+           case '/updatePermiso':
+            $PermisoController->updatePermiso($_POST);
+            break;  
+            
+        case '/addPermiso':
+            $PermisoController->addPermiso($_POST);
+            break;             
+                 
           
         
         default:
