@@ -78,9 +78,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
 if ($_SERVER["REQUEST_METHOD"] === "GET")
 {
     switch ($url) {
+        
         case "/index.php":
             $UserController->index();
             break;
+       
 
         case '/logout':
             $LoginController->logout();
@@ -141,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
             $PermisoController->Permiso();
             break;    
         
-        case '/editaClase':
+        case '/editaPermiso':
             $PermisoController->editaPermiso($_GET["id"]);
             break;  
 

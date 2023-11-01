@@ -25,97 +25,92 @@ class Clase
         $res = DB::query("select * from usuarios where rol_id = $id ;");
         $data = $res->fetchAll(PDO::FETCH_ASSOC);
 
-        
+
 
         return $data;
     }
-    public static function editaClase($id)
-    {
-        $res = DB::query("select * from usuarios where id = $id ;");
-        $data = $res->fetchAll(PDO::FETCH_ASSOC);
-
-        return $data;
-    }
-
+ 
     public static function eliminaClase($id)
     {
-        
-        $resClase = DB::query("DELETE from clases_clases where clase_id = $id ;");
-        $res = DB::query("DELETE from usuarios where id = $id ;");
-        
+
+        $resClase = DB::query("DELETE from clases_maestros where maestro_id = $id ;");
+        /* $res = DB::query("DELETE from usuarios where id = $id ;"); */
     }
 
     public static function updateClase($data)
     {
         
-        $id = $data["id"];
-        
-        $nombre = $data["nombre"];
-        $apellido = $data["apellido"];
-        $direccion = $data["direccion"];
-        $fecha_nacimiento = $data["fecha_nacimiento"];
-        $clase_id = $data["clase_id"];
 
-       
-        $res = DB::query("UPDATE usuarios SET nombre='$nombre',apellido='$apellido',direccion='$direccion',fecha_nacimiento  = '$fecha_nacimiento' WHERE id='$id';");
-       
-        $resClase = DB::query("UPDATE clases_clases SET clase_id='$clase_id' WHERE clase_id='$id';");
+        $clase_nombre = $data["clase_nombre"];
+        $maestro_id=$data["maestro_id"];
+        $idclaseActual=$data["id_clase_actual"];
+        $idmaestroActual=$data["id_maestro_actual"];
+             
+        $resclase = DB::query("UPDATE clases SET clase_nombre='$clase_nombre' WHERE id='$idclaseActual';");
 
-        
+        $resMaestro = DB::query("UPDATE clases_maestros SET maestro_id='$maestro_id' WHERE maestro_id='$idmaestroActual';");
+
     }
 
-    
+
 
     public static function addClase($data)
     {
-       var_dump($data);
+        
         $clase_nombre = $data["clase_nombre"];
-        $nombre = $data["nombre"];
-        
-        
+        $maestro_id = $data["maestro_id"];
+
+
 
         $usuario = DB::query("INSERT INTO clases (clase_nombre) 
         VALUES ('$clase_nombre');");
 
         $res = DB::query("select * from clases where clase_nombre = '$clase_nombre'");
-        $data = $res->fetch(PDO::FETCH_ASSOC);
+        $dataClase = $res->fetch(PDO::FETCH_ASSOC);
 
-        $id=$data["id"];
+        $clase_id = $dataClase["id"];
+       
 
-        $res = DB::query("select * from clases_maestros where maestro_id = '$id'");
-        $dataclase = $res->fetch(PDO::FETCH_ASSOC);
-
-        $claseid=$dataclase["id"];
-
-        var_dump($data);
-        
-        $clase = DB::query("INSERT INTO clases_maestros (clase_id,maestro_id) VALUES ('$claseid','$id');");
-
-
-        
+        $clase = DB::query("INSERT INTO clases_maestros (clase_id,maestro_id) VALUES ('$clase_id','$maestro_id');");
     }
 
 
     public static function findClases($id)
     {
-        $res = DB::query("SELECT
-        c.id ,
-        c.clase_nombre,
-        cm.maestro_id,
-        u.nombre
-    from
-        clases c
-    inner join clases_maestros cm 
-    inner join usuarios u on cm.maestro_id = u.id  
-    where
-        rol_id = 2;");
-            
-        $data = $res->fetchAll(PDO::FETCH_ASSOC);
 
-       
-        return $data ;
+        
+        $res = DB::query("SELECT
+        u.id ,u.nombre,u.correo,u.direccion,u.fecha_nacimiento,cm.clase_id,c.clase_nombre,cm.maestro_id  
+        from
+            usuarios u
+        inner join clases_maestros cm on u.id = cm.maestro_id 
+        inner join clases c on cm.clase_id = c.id
+        where
+            rol_id = $id ;");
+
+        $clases = $res->fetchAll(PDO::FETCH_ASSOC);
+
+
+        return $clases;
     }
 
-  
+    public static function findmaestro($id)
+    {
 
+        $res = DB::query("SELECT
+        u.id ,u.nombre,u.correo,u.direccion,u.fecha_nacimiento,cm.clase_id,c.clase_nombre,cm.maestro_id  
+        from
+            usuarios u
+        inner join clases_maestros cm on u.id = cm.maestro_id 
+        inner join clases c on cm.clase_id = c.id
+        where
+            u.id = $id ;");
+
+        $clases = $res->fetchAll(PDO::FETCH_ASSOC);
+
+
+        return $clases;
+
+        
+    }
 }

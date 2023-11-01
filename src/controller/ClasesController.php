@@ -8,39 +8,43 @@ class ClaseController {
     public static function addClase($data)
     {     
         $addClase=Clase::addClase($data);
-        $clases=Clase::findId(2);
+        
         
         header("Location: /clases" );
     }
 
-    public static function updateClase($data)
-    {
-        $updateClases= Clase::updateClase($data);
+   public static function updateClase($data)
+   {    
         
-        header("Location: /clase" );
-     
-        
-    }   
+        $updateClase = Clase::updateClase($data);
+        header("Location: /clases" );
+    
+   }
 
     public static function editaClase($id)
-    {   
-        $editaClase= Clase::editaClase($id);
-        
-        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/clases/editaClases.php";
+    {  
+        $maestros = Clase::findId(2); 
+        $clases = Clase::findClases(2);
+        $dataActual=Clase::findmaestro($id);
+      
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/clases/editaClase.php";
     } 
 
     public static function eliminaClase($id)
     {   
         $eliminaClase= Clase::eliminaClase($id);
         
-        header("Location: /clase" );
+        header("Location: /clases" );
     } 
 
 
     public static function clase()
     {   
         $clases = Clase::findClases(2);
+        $maestros = Clase::findId(2);
+        
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/clases/clases.php";
+        
     }
 
       

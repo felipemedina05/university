@@ -57,12 +57,44 @@ class UserController {
             //agregar la verificacion de la contraseña hash con passwor veryfy//    
             session_start();
             $_SESSION["user"] = $data;
-            header("Location: /admin");
+            header("Location: /src/views/admin/admin.php");
             
         }else {
                        
             echo "datos incorrectos" ;
         }
+
+    }
+
+        public static function loginA($request)
+        {
+            $data = usuario::findCorreo($request["correo"]);
+            if ($data === true) 
+            {
+                //agregar la verificacion de la contraseña hash con passwor veryfy//    
+                session_start();
+                $_SESSION["user"] = $data;
+                header("Location: /src/views/alumno/alumno.php");
+                
+            }else {
+                           
+                echo "datos incorrectos" ;
+            }
+        }
+            public static function loginM($request)
+            {
+                $data = usuario::findCorreo($request["correo"]);
+                if ($data === true) 
+                {
+                    //agregar la verificacion de la contraseña hash con passwor veryfy//    
+                    session_start();
+                    $_SESSION["user"] = $data;
+                    header("Location: /src/views/maestros/maestro.php");
+                    
+                }else {
+                               
+                    echo "datos incorrectos" ;
+                }
     }  
 
    

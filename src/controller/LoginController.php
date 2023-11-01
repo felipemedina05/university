@@ -32,7 +32,7 @@ class LoginController {
                                 header("Location: /maestro");
                             } else
                                 {
-                                    header("Location: /src/views/alumno/alumno.php");
+                                    header("Location: /estudiante");
 
                                 }
                  }else 

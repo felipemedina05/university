@@ -82,7 +82,7 @@ $usuario = $_SESSION["user"];
 
                     </li>
                     <li>
-                        <a href="/permisos" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
+                        <a href="/permisos.php" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                                 <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
                             </svg>
@@ -90,7 +90,7 @@ $usuario = $_SESSION["user"];
                         </a>
                     </li>
                     <li>
-                        <a href="/maestros" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
+                        <a href="/maestros.php" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                                 <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                             </svg>
@@ -106,7 +106,7 @@ $usuario = $_SESSION["user"];
                         </a>
                     </li>
                     <li>
-                        <a href="/clases" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
+                        <a href="/clases.php" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
                                 <path d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z" />
@@ -238,7 +238,7 @@ $usuario = $_SESSION["user"];
                                 </tr>
                             <?php } ?>
                             <!-- Modal de edición -->
-                            <div id="editModal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50  items-center justify-center">
+                            <div id="editModal" class=" fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50  items-center justify-center">
                                 <div class="fixed inset-0 flex items-start justify-start z-50">
                                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 m-auto">
                                         <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="editModal">
@@ -251,22 +251,22 @@ $usuario = $_SESSION["user"];
                                             <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Editar Clase</h3>
                                             <form class="space-y-6" action="/updateClase" method="post">
                                                 <div>
-                                                    <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre de la Clase</label>
-                                                    <input type="text" name="clase_nonmbre" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Maestro Asignado</label>
-                                                    <select  name="nombre" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >
-                                                    <?php foreach ($clases as $clase) { ?>
-                                                            <option value="<?=$clase['id']?>"><?=$clase['nombre']?></option>
+                                                    <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre de la materia</label>
+                                                    <input type="text" name="clase_nombre" value = "<?=$dataActual[0]['clase_nombre']?>"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre maestro asignado</label>
+                                                    <select type="list" name="maestro_id" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                                        <?php foreach ($maestros as $maestro) { ?>
+                                                            <option value="<?=$maestro['id']?>"> <?=$maestro['nombre']?> </option>
                                                         <?php } ?>
 
-
                                                     </select>
-                                                
+                                                    <input type="text" name="id_maestro_actual" value = "<?=$dataActual[0]['maestro_id']?>"  class="hidden" >
+                                                    <input type="text" name="id_clase_actual" value = "<?=$dataActual[0]['clase_id']?>"  class="hidden" >
                                                 
                                                 </div>
                                                 <div class="flex mt-5 ml-96 gap-1 justify-end">
-                                                    <a href="/estudiante" type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</a>
-                                                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
+                                                    <a href="/clases" type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</a>
+                                                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Actualizar</button>
                                                 </div>
                                             </form>
                                         </div>
