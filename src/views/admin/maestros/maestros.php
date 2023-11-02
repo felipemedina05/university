@@ -162,14 +162,12 @@ $usuario = $_SESSION["user"];
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
                                                     <input type="text" name="fecha_nacimiento" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Clase asignada</label>
-                                                    <select type="text" name="clase_id" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                                                        
-                                                        <option value="1">Matematica</option>
-                                                        <option value="2">Castellano</option>
-                                                        <option value="3">Ingles</option>
-                                                        
+                                                    <select  name="nombre" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >
+                                                    <?php foreach ($listaClases as $clase) { ?>
+                                                            <option value="<?=$clase['id']?>"><?=$clase['clase_nombre']?></option>
+                                                        <?php } ?>
 
-                                                        
+
                                                     </select>
 
                                                     <!--  <input type="text" name="rol_id" value="3" class="hidden">

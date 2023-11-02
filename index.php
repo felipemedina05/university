@@ -3,7 +3,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/LoginController.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/UserController.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/MaestroController.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/ClasesController.php");
-require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/PermisoController.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/src/controller/PermisosController.php");
 
 $LoginController = new LoginController();
 $UserController = new UserController();
@@ -62,11 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
             $PermisoController->updatePermiso($_POST);
             break;  
             
-        case '/addPermiso':
-            $PermisoController->addPermiso($_POST);
-            break;             
-                 
-          
+                
         
         default:
             echo "no se encontro la url por post";
@@ -139,9 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
             break;      
             
         /*  crud de admin para permisos */
-        case '/updatePermiso':
-            $PermisoController->Permiso();
-            break;    
+        
         
         case '/editaPermiso':
             $PermisoController->editaPermiso($_GET["id"]);

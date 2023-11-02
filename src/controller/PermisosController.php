@@ -3,44 +3,32 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/src/model/Permiso.php";
 
 class PermisoController {
 
-
-
-    public static function addPermiso($data)
-    {     
-        $addPermiso=Permiso::addPermiso($data);
-        $permisos=Permiso::findId(2);
-        
-        header("Location: /permiso" );
-    }
-
     public static function updatePermiso($data)
-    {
-        $updatePermisos= Permiso::updatePermiso($data);
-        
-        header("Location: /permiso" );
-     
-        
-    }   
+    {  
+        $permisos = Permiso::all();
+        $updatePermiso=Permiso::updatePermiso($data);
+      
+        header("Location: /permisos" );
+    }    
 
-    public static function editaPermiso($id)
-    {   
-        $editaPermiso= Permiso::editaPermiso($id);
-        
+     public static function editaPermiso($id)
+    {  
+        /* $maestros = Permiso::findId(2); */
+        $roles = Permiso::findrol();
+        $permisos = Permiso::all();
+        $dataActual=Permiso::findId($id);
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/permisos/editaPermisos.php";
+       
     } 
 
-    public static function eliminaPermiso($id)
+
+    public static function Permiso()
     {   
-        $eliminaPermiso= Permiso::eliminaPermiso($id);
+       
+        $permisos = Permiso::all();
         
-        header("Location: /permiso" );
-    } 
-
-
-    public static function permiso()
-    {   
-        $permisos = Permiso::findPermisos(2);
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/permisos/permisos.php";
+       
     }
 
       

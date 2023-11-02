@@ -121,4 +121,14 @@ class Maestro
         return $data;
     }
 
+    public static function Clases()
+    {
+        
+        $res = DB::query("select * from  clases ;");
+        $data = $res->fetchall(PDO::FETCH_ASSOC);
+       
+        return $data;
+    }
+
+
 }

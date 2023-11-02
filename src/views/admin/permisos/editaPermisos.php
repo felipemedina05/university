@@ -4,7 +4,7 @@ if (!isset($_SESSION["user"])) {
     header("location: /index.php");
 }
 
-$usuario= $_SESSION["user"];
+$usuario = $_SESSION["user"];
 
 ?>
 
@@ -17,7 +17,7 @@ $usuario= $_SESSION["user"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/src/output.css" rel="stylesheet">
-    <title>Alumno</title>
+    <title>edicion Permisos</title>
 </head>
 
 <body class="bg bg-gray-100">
@@ -49,7 +49,7 @@ $usuario= $_SESSION["user"];
 
 
 
-       
+
 
         <aside id="default-sidebar" class="  fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
             <div class="h-full px-3 py-4 overflow-y-auto dark:bg-gray-50 bg-gray-800">
@@ -66,7 +66,7 @@ $usuario= $_SESSION["user"];
                     <li>
                         <p href="#" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
 
-                            <span class="flex-1 ml-3 whitespace-nowrap"><?= $usuario ["correo"]?></span>
+                            <span class="flex-1 ml-3 whitespace-nowrap"><?= $usuario["correo"] ?></span>
                         </p>
 
                     </li>
@@ -82,7 +82,7 @@ $usuario= $_SESSION["user"];
 
                     </li>
                     <li>
-                        <a href="/permisos.php" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
+                        <a href="/permisos" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                                 <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
                             </svg>
@@ -90,7 +90,7 @@ $usuario= $_SESSION["user"];
                         </a>
                     </li>
                     <li>
-                        <a href="/maestro.php" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
+                        <a href="/maestro" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                                 <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                             </svg>
@@ -106,7 +106,7 @@ $usuario= $_SESSION["user"];
                         </a>
                     </li>
                     <li>
-                        <a href="/clases.php" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
+                        <a href="/clases" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
                                 <path d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z" />
@@ -117,72 +117,24 @@ $usuario= $_SESSION["user"];
                     </li>
                 </ul>
             </div>
-        </aside> 
- 
+        </aside>
+
         <div class=" p-4 sm:ml-64">
-        <div class="flex items-center gap-60 h-10 border-dotted border-red-800 ">
-                    <h1 class="text-2xl text-gray-400 dark:text-gray-500 justify-start">
-                        lista de maestros
-                    </h1>
-                    <p class="w-max ml-auto border-white rounded-md justify-end">home / Maestros </p>
-                </div>
+            <div class="flex items-center gap-60 h-10 border-dotted border-red-800 ">
+                <h1 class="text-2xl text-gray-400 dark:text-gray-500 justify-start">
+                    Lista de Permisos
+                </h1>
+                <p class="w-max ml-auto border-white rounded-md justify-end">home / Permisos </p>
+            </div>
             <div class=" bg bg-white p-4 border-2 border-gray-200  rounded-lg dark:border-gray-700">
-                
+
                 <div class="">
 
                     <div class="flex items-center  h-10 rounded bg-wite  dark:bg-gray-800 mb-1">
-                        <span class="text-gray-400 dark:text-gray-500 justify-start">Informacion de maestros</span>
-                        <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="ml-auto justify-end block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                            Agregar Maestro
+                        <span class="text-gray-400 dark:text-gray-500 justify-start">Informacion de Permisos </span>
+                       
                         </button>
-                        <!--  modal para agregar -->
-                        <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                            <div class="relative w-full max-w-md max-h-full">
-                                <!-- Modal content -->
-                                <div class="fixed inset-0 flex items-start justify-start z-50">
-                                    <div class=" relative bg-white rounded-lg shadow dark:bg-gray-700 m-auto">
-                                        <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
-                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                            </svg>
-                                            <span class="sr-only">Close modal</span>
-                                        </button>
-                                        <div class="px-6 py-6 lg:px-4  ">
-                                            <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Agregar Maestro</h3>
-                                            <form class="space-y-6" action="/addMaestro" method="post">
-                                                <div>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
-                                                    <input type="text" name="correo" id="" placeholder="Ingrese email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre(S)</label>
-                                                    <input type="text" name="nombre" id="" placeholder="Ingrese nombre(s)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido(s)</label>
-                                                    <input type="text" name="apellido" id="" placeholder="Ingresa los apellidos " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
-                                                    <input type="text" name="direccion" id="" placeholder="Ingresa la direccion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
-                                                    <input type="text" name="fecha_nacimiento" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Clase asignada</label>
-                                                    <select type="text" name="fecha_nacimiento" id="" placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >
-                                                    <?php foreach ($listaClases as $clase) { ?>
-                                                            <option value="<?=$clase['id']?>"><?=$clase['clase_nombre']?></option>
-                                                        <?php } ?>
-
-
-                                                    </select>
-                                                    </select>
-
-
-                                                    
-                                            </form>
-                                            <div class="flex mt-5 ml-96 gap-1 justify-end">
-                                                <button type="reset" class="w-auto mt-1 text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">close</button>
-                                                <button type="submit" class="w-auto mt-1 text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                     </div>
 
@@ -212,56 +164,44 @@ $usuario= $_SESSION["user"];
                                     #
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Nombre
+                                    Email / Usuario
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Email
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Direccion
+                                    Permiso
                                 </th>
                                 
                                 <th scope="col" class="px-6 py-3">
-                                    Fecha Nacimiento
+                                    Estado
                                 </th>
-
-                                <th scope="col" class="px-6 py-3">
-                                    Clase Asignada
-                                </th>
+                                
                                 <th scope="col" class="px-6 py-3">
                                     Acciones
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($editaMaestro as $maestro)  { ?>
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                <?=$maestro["id"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$maestro["nombre"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$maestro["correo"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$maestro["direccion"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?=$maestro["fecha_nacimiento"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                <?= $maestro["rol_id"] ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="/editaMaestro?id=<?=$maestro["id"]?>"  class="text-blue-500 hover:underline">Editar</a>
-                                    <a href="/eliminaMaestro?id=<?=$maestro["id"]?>" class="font-medium text-red-600 dark:text-red-500 hover:underline">borrar</a>
-                                </td>
-                            </tr>
+                            <?php foreach ($permisos as $permiso) { ?>
+                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <?= $permiso["id"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $permiso["correo"] ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $permiso["rol"] ?>
+                                    </td>
+                                    <td class="px-6 py-4 " >
+                                        <?= $permiso["estado"] = 1 ? "activo" : "inactivo" ?> 
+                                    </td>
+                                
+                                    <td class="px-6 py-4">
+                                        <a href="/editaPermiso?id=<?= $clase["maestro_id"] ?>" class="text-blue-500 hover:underline">Editar</a>
+                                    </td>
+                                </tr>
                             <?php } ?>
                             <!-- Modal de edición -->
-                            <div id="editModal" class=" fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50  items-center justify-center">
+                            <div id="editModal" class="  fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50  items-center justify-center">
                                 <div class="fixed inset-0 flex items-start justify-start z-50">
                                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 m-auto">
                                         <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="editModal">
@@ -271,41 +211,30 @@ $usuario= $_SESSION["user"];
                                             <span class="sr-only">Close modal</span>
                                         </button>
                                         <div class="px-6 py-6 lg:px-4">
-                                            <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Editar Maestro</h3>
-                                            <form class="space-y-6" action="/updateMaestro" method="post">
+                                            <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Editar Permiso</h3>
+                                            <form class="space-y-6" action="/updatePermiso" method="post">
                                                 <div>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
-                                                    <input disabled type="text" name="correo" value="<?= $maestro["correo"] ?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre(S)</label>
-                                                    <input type="text" name="nombre" value="<?= $maestro["nombre"] ?> " id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido(s)</label>
-                                                    <input type="text" name="apellido" value="<?= $maestro["apellido"] ?> " id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
-                                                    <input type="text" name="direccion" value="<?= $maestro["direccion"] ?> " id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento</label>
-                                                    <input type="text" name="fecha_nacimiento" value="<?= $maestro["fecha_nacimiento"] ?> "id="" Class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Clase Asignada</label>
-                                                    <select  name="clase_id" value="<?= $maestro["clase_id"] ?>" id="" Class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                                                    <?php foreach ($listaClases as $clase) { ?>
-                                                            <option value="<?=$clase['id']?>"><?=$clase['clase_nombre']?></option>
+                                                    <label for="DNI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email del Usuario</label>
+                                                    <input type="text" name="correo" value="<?=$dataActual[0]['correo']?>" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rol del Usuario</label>
+                                                    <select  name="rol_id" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >
+                                                    <?php foreach ($roles as $rol) { ?>
+                                                            <option value="<?=$rol['id']?>"><?=$rol['rol']?></option>
                                                         <?php } ?>
-
-
-                                                    </select>                              
                                                     </select>
-
-                                                    <input type="text" name="id" value="<?= $maestro["id"] ?> "id="" Class="hidden">
-
+                                                    <input type="text" name="rol_id_actual" value="<?=$dataActual[0]['rol_id']?>" id="" class="hidden" >
+                                                    <input type="text" name="correo_actual" value="<?=$dataActual[0]['correo']?>" id="" class="hidden" >
+                                                
                                                 </div>
                                                 <div class="flex mt-5 ml-96 gap-1 justify-end">
-                                                    <a href="/maestro" type="reset" class="w-full text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</a>
-                                                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
+                                                    <a href="/permisos" type="reset" class="w-auto text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</a>
+                                                    <button type="submit" class="w-auto text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Guardar cambios</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
                         </tbody>
                     </table>

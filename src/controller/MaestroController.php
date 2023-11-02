@@ -25,6 +25,7 @@ class MaestroController {
     public static function editaMaestro($id)
     {   
         $editaMaestro= Maestro::editaMaestro($id);
+        $listaClases = Maestro::Clases();
         
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/maestros/editaMaestros.php";
     } 
@@ -40,6 +41,8 @@ class MaestroController {
     public static function maestro()
     {   
         $maestros = Maestro::findMaestros(2);
+        $listaClases = Maestro::Clases();
+
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/maestros/maestros.php";
     }
 
