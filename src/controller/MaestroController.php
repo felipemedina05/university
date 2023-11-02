@@ -62,6 +62,50 @@ class MaestroController {
             echo "datos incorrectos" ;
         }
     }  
+    public static function alumnos($id)
+    {
+        $infMaestros = Maestro::lista_clases($id);
+        $listaAlumnos= Maestro::alumnos_clases($id);
+        
+       
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/maestros/alumnos.php";
+       
+    }  
+
+    public static function calificacion($id)
+    {
+        
+        $infMaestros = Maestro::lista_clases($id);
+        $listaAlumnos= Maestro::alumnos_clases($id);
+        
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/maestros/alumnos.php";
+       
+    }  
+
+    public static function mensaje($id)
+    {
+        
+        $infMaestros = Maestro::lista_clases($id);
+        $listaAlumnos= Maestro::alumnos_clases($id);
+       
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/maestros/alumnos.php";
+       
+    }  
+
+    public static function perfil($id)
+    {
+                 
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/maestros/perfil.php";
+       
+    }  
+
+    public static function updatePerfil($data)
+    {
+        
+        $updatePerfil= Maestro::updatePerfil($data);
+        
+        header("Location: /dashboardM");
+    } 
 
    
 

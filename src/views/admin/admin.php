@@ -144,3 +144,75 @@ if (!isset($_SESSION["user"])) {
 
 
 </html>
+
+
+
+
+<script>
+    // JavaScript para controlar la apertura y cierre del menú desplegable
+    const menuButton = document.querySelector('.group');
+    const menu = document.getElementById('menu');
+
+    menuButton.addEventListener('click', function() {
+        menu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!menuButton.contains(event.target) && !menu.contains(event.target)) {
+            menu.classList.add('hidden');
+        }
+    });
+
+    // control de modal para agregar
+    const modalToggle = document.querySelector('[data-modal-toggle="authentication-modal"]');
+    const modal = document.getElementById('authentication-modal');
+
+    // Agregar un controlador de eventos al botón "Toggle modal" para mostrar el modal
+    modalToggle.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
+    });
+
+    // Agregar un controlador de eventos al botón "Close modal" dentro del modal para ocultar el modal
+    const closeModalButton = modal.querySelector('[data-modal-hide="authentication-modal"]');
+    closeModalButton.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+    });
+
+    // Agregar un controlador de eventos para cerrar el modal cuando se presiona la tecla Escape
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+            modal.classList.add('hidden');
+            modal.setAttribute('aria-hidden', 'true');
+        }
+    });
+
+
+
+    // Función para mostrar el modal de edición
+
+    const editModalLink = document.getElementById('editModalLink');
+    const editModal = document.getElementById('editModal');
+
+    // Función para mostrar el modal de edición
+    function openEditModal() {
+        editModal.classList.remove('hidden');
+    }
+
+    // Función para ocultar el modal de edición
+    function closeEditModal() {
+        editModal.classList.add('hidden');
+    }
+
+    editModalLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        openEditModal();
+    });
+
+    // Agregar un controlador de eventos para cerrar el modal cuando se hace clic en el botón "Close"
+    const closeEditModalButton = editModal.querySelector('[data-modal-hide="editModal"]');
+    closeEditModalButton.addEventListener('click', () => {
+        closeEditModal();
+    });
+</script>

@@ -26,13 +26,13 @@ class LoginController {
                     $_SESSION["user"] = $data;
                     if ($data["rol_id" ]  === 1 ) 
                         {   
-                            header("Location: /src/views/admin/admin.php");
+                            header("Location: /admin");
                         } elseif ($data["rol_id" ]  ===2 ) 
                             {
                                 header("Location: /maestro");
                             } else
                                 {
-                                    header("Location: /estudiante");
+                                    header("Location: /alumno");
 
                                 }
                  }else 
@@ -54,4 +54,21 @@ class LoginController {
         header("Location: /index.php");
     }
 
+    public static function DashboardA() 
+    {
+
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/admin.php"; 
+    }
+
+    public static function DashboardE() 
+    {
+
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/alumno/dashboard.php"; 
+    }
+
+    public static function DashboardM() 
+    {
+
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/maestros/dashboard.php"; 
+    }
 }

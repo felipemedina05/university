@@ -68,7 +68,7 @@ class Maestro
 
     public static function addMaestro($data)
     {
-       var_dump($data);
+       
         $correo = $data["correo"];
         $nombre = $data["nombre"];
         $apellido = $data["apellido"];
@@ -87,7 +87,6 @@ class Maestro
 
         $id=$data["id"];
 
-        var_dump($data);
         
         $clase = DB::query("INSERT INTO clases_maestros (clase_id,maestro_id) VALUES ('$clase_id','$id');");
 
@@ -130,5 +129,75 @@ class Maestro
         return $data;
     }
 
+   public static function lista_clases($id)
+   {
+    $res = DB::query("SELECT u.id ,u.nombre,u.correo,u.direccion,u.fecha_nacimiento,cm.clase_id,c.clase_nombre 
+    from
+        usuarios u
+    inner join clases_maestros cm on u.id = cm.maestro_id 
+    inner join clases c on cm.clase_id = c.id
+    where
+        u.id = $id ;");
+    $data = $res->fetchall(PDO::FETCH_ASSOC);
+   
+    return $data;
+   }
+   public static function alumnos_clases($id)
+    {
+        $res = DB::query("SELECT
+        u.id ,
+        u2.nombre,
+        ac.calificacion, 
+        ac.mensaje, 
+        ac.alumno_id, 
+        ac.clase_id, 
+        cm.clase_id, 
+        cm.maestro_id 
+    from
+        usuarios u
+    inner join clases_maestros cm on
+        u.id = cm.maestro_id
+    inner join clases c on
+        cm.clase_id = c.id
+    inner join alumnos_clases ac on ac.clase_id  =  cm.clase_id 
+    inner join usuarios u2 on ac.alumno_id = u2.id 
+    where
+        u.id = $id ;");
+                                    $data = $res->fetchall(PDO::FETCH_ASSOC);
 
+        return $data;
+    }
+
+    public static function updatePerfil($data)
+   {
+
+    
+    $correo = $data["correo"];
+    $contrasena =$data["contrasena"];
+    $nombre = $data["nombre"];
+    $apellido = $data["apellido"];
+    $direccion = $data["direccion"];
+    $fecha_nacimiento = $data["fecha_nacimiento"];
+    
+    $id_actual =$data["id_actual"];
+
+
+
+    $res = DB::query("UPDATE usuarios set
+	
+	correo = '$correo',
+    contrasena = '$contrasena',
+    nombre = '$nombre',
+    apellido = '$apellido',
+    direccion = '$direccion',
+    fecha_nacimiento = '$fecha_nacimiento'
+where
+	id = $id_actual;");
+
+  
+   
+    
+   }
+
+   
 }

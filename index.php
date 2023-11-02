@@ -49,6 +49,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         case '/addMaestro':
             $MaestroController->addMaestro($_POST);
             break;  
+
+
+        case '/dashboardM':
+            $LoginController->DashboardM();
+            break;
+
             /* metodos clase post */
         case '/updateClase':
             $ClaseController->updateClase($_POST);
@@ -56,9 +62,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
             
         case '/addClase':
             $ClaseController->addClase($_POST);
-            break;             
+            break;     
+
+        case '/updatePerfil':
+            $MaestroController->updatePerfil($_POST);               
+            break;     
+            
+
            /* metodos permisos post */
-           case '/updatePermiso':
+        case '/updatePermiso':
             $PermisoController->updatePermiso($_POST);
             break;  
             
@@ -78,14 +90,18 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
         case "/index.php":
             $UserController->index();
             break;
-       
+                   
 
         case '/logout':
             $LoginController->logout();
             break; 
         
        /*  crud de admin para estudiantes */
-         case '/updateEstudiante':
+        case '/admin':
+            $LoginController->DashboardA();
+            break;
+       
+        case '/updateEstudiante':
             $UserController->estudiante();
             break;    
         
@@ -102,6 +118,10 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
             break;   
 
          /*  crud de admin para maestros */
+        case '/maestro':
+            $LoginController->DashboardM();
+            break;
+        
         case '/updateMaestro':
             $MaestroController->maestro();
             break;    
@@ -117,6 +137,11 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
         case '/maestro':
             $MaestroController->maestro();
             break; 
+
+        case '/dashboardM':
+            $LoginController->DashboardM();
+            break;
+            
          /*  crud de admin para clases */
          case '/updateClase':
             $ClaseController->Clase();
@@ -146,14 +171,38 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
             $PermisoController->Permiso();
             break;   
 
+      
+     /*  crud de usuario maestro */
+        
+        
+     /* case '/editaPermiso':
+        $PermisoController->editaPermiso($_GET["id"]);
+        break;  
+ */
+    
+        case '/alumnos':
+            $MaestroController->alumnos($_GET["id"]);            
+            break;   
 
+       /*  case '/calificacion':
+            $MaestroController->calificacion($_GET["id"]);
+                
+            break; 
+               
+        case '/mensaje':
+            $MaestroController->mensaje($_GET["id"]);
+                    
+            break;       */       
 
-       
+        case '/perfil':
+            $MaestroController->perfil($_GET["id"]);               
+            break;   
+
+          
+           
+   
         default:
-            echo "no se encontro la url por get";
+             echo "no se encontro la url por get";
             break;
-    }
 }
-
-
-?>
+}

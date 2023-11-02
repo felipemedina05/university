@@ -17,7 +17,7 @@ $usuario = $_SESSION["user"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/src/output.css" rel="stylesheet">
-    <title>Alumno</title>
+    <title>clases</title>
 </head>
 
 <body class="bg bg-gray-100">
