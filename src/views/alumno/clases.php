@@ -143,7 +143,7 @@ $usuario = $_SESSION["user"];
                             <?php foreach ($calificaciones as $alumno) { ?>
                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <?= $alumno["ac_id"] ?>
+                                        <?= $alumno["id"] ?>
                                     </td>
                                     <td class="px-6 py-4">
                                         <?= $alumno["clase_nombre"] ?>
@@ -175,21 +175,18 @@ $usuario = $_SESSION["user"];
                 </div>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
 
-                    <form class="space-y-6" action="/inscribir" method="post">
-                        <input class="hidden" name="id_usuario" value="<?= $usuario["id"] ?>"></input>
-                        <select multiple  name="clases[]" class="bg-gray-50 border
-                         border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
-                          focus:border-blue-500 block w-[500px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> >
+    <form class="space-y-6" action="/inscribir" method="post">
+        <input class="hidden" name="id_usuario" value="<?= $usuario["id"] ?>"></input>
+        <select multiple name="clases[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[600px] p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <?php foreach ($inscibirlas as $inscribir) { ?>
+                <option value="<?= $inscribir["id"] ?>"><?= $inscribir["clase_nombre"] ?></option>
+            <?php } ?>
+        </select>
 
-                            <?php foreach ($inscibirlas as $inscribir) { ?>
-                                <option value="<?= $inscribir["id"] ?>"><?= $inscribir["clase_nombre"] ?></option>
-                            <?php } ?>
+        <button class="w-auto mt-1 text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-6 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="submit">Inscribir</button>
+    </form>
+</div>
 
-                        </select>
-
-                        <button type="submit">inscribir</button>
-                    </form>
-                </div>
             </div>
 
 
