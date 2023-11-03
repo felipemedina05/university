@@ -35,24 +35,20 @@ $usuario = $_SESSION["user"];
             </div>
             <div class=" flex relative m-auto group mr-20  ">
 
-                <span class="justify-end mr-2"><?= $usuario["correo"] ?></span>
+                <span class="justify-end mr-2"><?= $usuario["nombre"] ?> <?= $usuario["apellido"] ?></span>
 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 text-gray-400 cursor-pointer">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
                 <!-- Menú desplegable -->
                 <ul id="menu" class="absolute hidden mt-7 space-y-2 bg-white text-gray-800 text-sm p-2 rounded-lg ">
-                    <li><a href="/perfil?id=<?= $usuario["id"] ?>"><img src="/assets/perfil.svg"></img> Perfil</a></li>
+                    <li><a href="/perfilE?id=<?= $usuario["rol_id"] ?>"><img src="/assets/perfil.svg"></img> Perfil</a></li>
                     <li><a href="/logout"><img src="/assets/logout.svg"></img> Cerrar sesion</a></li>
                 </ul>
             </div>
         </header>
 
-
-
-
-
-        <aside id="default-sidebar" class=" hidden fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+        <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
             <div class="h-full px-3 py-4 overflow-y-auto dark:bg-gray-50 bg-gray-800">
                 <ul class="space-y-2 font-medium">
                     <li class=" border-b border-white">
@@ -67,31 +63,43 @@ $usuario = $_SESSION["user"];
                     <li>
                         <p href="#" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
 
-                            <span class="flex-1 ml-3 whitespace-nowrap"><?= $usuario["correo"] ?></span>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Alumno</span>
                         </p>
 
                     </li>
                     <li class=" border-b border-white flex items-center p-2 dark:text-gray-900  text-white">
 
-                        <span class="flex-1 ml-3 whitespace-nowrap">Maestro</span>
+                        <span class="flex-1 ml-3 whitespace-nowrap"><?= $usuario["nombre"] ?> <?= $usuario["apellido"] ?></span>
 
 
                     </li>
                     <li class=" flex items-center p-2 dark:text-gray-900 rounded-lg text-white">
 
-                        <h3 class="flex-1 ml-3 whitespace-nowrap">Menu Maestros</h3>
-
-                    </li>
+                        <h3 class="flex-1 ml-3 whitespace-nowrap">Menu Alumnos</h3>
+                          
+                
                     <li>
-                        <a href="/alumnos?id=<?= $usuario["id"] ?>  " class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
-                            <img src="/assets/alumno.svg" class="text-red"></img>
-                            <span class="flex-1 ml-3 whitespace-nowrap">Alumnos</span>
+                        <a href="/calificaciones?id=<?=$usuario["id"]?>" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
+                            <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Ver calificaciones </span>
                         </a>
                     </li>
-                </ul>
+              
+                    <li>
+                        <a href="/administrarClases?id=<?=$usuario["id"]?>" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
+                            <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Administrar tus clases </span>
+                        </a>
+                    </li>
+
+
+                </ul>   
             </div>
         </aside>
-
         <div class=" p-4 sm:ml-64">
             <div class="flex items-center gap-60 h-10 border-dotted border-red-800 ">
                 <h1 class="text-2xl text-gray-400 dark:text-gray-500 justify-start">
@@ -116,7 +124,7 @@ $usuario = $_SESSION["user"];
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <div class="px-6 py-6 lg:px-4">
                    
-                            <form class="space-y-6" action="/updatePerfil" method="post">
+                            <form class="space-y-6" action="/updatePerfilE" method="post">
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
                                     <input type="text" value="<?= $usuario["correo"] ?>" name="correo" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >

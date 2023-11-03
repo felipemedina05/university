@@ -93,9 +93,20 @@ class MaestroController {
     }  
 
     public static function perfil($id)
-    {
-                 
-        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/maestros/perfil.php";
+    {   
+       
+        if ($id === "1")
+        {
+            include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/admin/admin.php";    
+        } 
+        elseif ($id === "2") {
+            include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/maestros/perfil.php";
+        } 
+        elseif ($id === "3") {
+            include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/alumno/perfil.php";    # code...
+        }else { echo "el rol no existe";}
+        
+        
        
     }  
 
@@ -105,8 +116,19 @@ class MaestroController {
         $updatePerfil= Maestro::updatePerfil($data);
         
         header("Location: /dashboardM");
+
+        
     } 
 
+    public static function updatePerfilE($data)
+    {
+        
+        $updatePerfil= Maestro::updatePerfil($data);
+        
+        header("Location: /administrarClases");
+
+        
+    } 
     
 
 

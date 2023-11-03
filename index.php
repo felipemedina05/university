@@ -71,6 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         case '/updatePerfil':
             $MaestroController->updatePerfil($_POST);               
             break;     
+
+            case '/updatePerfilE':
+                $MaestroController->updatePerfilE($_POST);               
+                break; 
             
 
            /* metodos permisos post */
@@ -163,13 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
             $ClaseController->Clase();
             break;      
             
-        case '/calificaciones':
-            $ClaseController->calificaciones($_GET["id"]);
-            break;       
 
-        case '/administrarClases':
-            $ClaseController->administrarClases($_GET["id"]);
-            break;   
 
         /*  crud de admin para permisos */
         
@@ -212,6 +210,27 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
             $LoginController->DashboardE();
             break;
            
+        case '/perfilE':
+            $MaestroController->perfil($_GET["id"]);               
+            break;  
+
+        case '/dashboardE':
+            $LoginController->DashboardE();
+            break;
+
+        case '/calificaciones':
+            $ClaseController->calificaciones($_GET["id"]);
+            break;   
+
+        case '/administrarClases':
+            $ClaseController->administrarClases($_GET["id"]);
+          
+            break;  
+            
+        case '/debaja':
+            $ClaseController->debaja($_GET["id"]);
+           
+            break;  
    
         default:
              echo "no se encontro la url por get";

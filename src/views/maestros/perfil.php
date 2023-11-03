@@ -42,17 +42,13 @@ $usuario = $_SESSION["user"];
                 </svg>
                 <!-- Menú desplegable -->
                 <ul id="menu" class="absolute hidden mt-7 space-y-2 bg-white text-gray-800 text-sm p-2 rounded-lg ">
-                    <li><a href="/perfil?id=<?= $usuario["id"] ?>"><img src="/assets/perfil.svg"></img> Perfil</a></li>
+                    <li><a href="/perfil?id=<?= $usuario["rol_id"] ?>"><img src="/assets/perfil.svg"></img> Perfil</a></li>
                     <li><a href="/logout"><img src="/assets/logout.svg"></img> Cerrar sesion</a></li>
                 </ul>
             </div>
         </header>
 
-
-
-
-
-        <aside id="default-sidebar" class=" hidden fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+        <aside id="default-sidebar" class=" fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
             <div class="h-full px-3 py-4 overflow-y-auto dark:bg-gray-50 bg-gray-800">
                 <ul class="space-y-2 font-medium">
                     <li class=" border-b border-white">

@@ -67,19 +67,25 @@ class ClaseController {
 
     public static function administrarClases($id)
     {   
-        $clases = Clase::findClases(2);
-        $maestros = Clase::findId(2);
-        
+        $calificaciones= Clase::calificaciones($id);
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/alumno/clases.php";
+        
         
     }
 
     public static function calificaciones($id)
     {   
-        $calificaciones = Clase::findClases(2);
-        $maestros = Clase::findId(2);
+        $calificaciones= Clase::calificaciones($id);
         
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/alumno/calificaciones.php";
+        
+    }
+
+    public static function debaja($id)
+    {   
+        $debaja= Clase::debaja($id);
+        
+        header("Location: /administrarClases");
         
     }
     

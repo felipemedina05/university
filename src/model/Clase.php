@@ -111,6 +111,37 @@ class Clase
 
         return $clases;
 
-        
+              
     }
+
+    public static function calificaciones($id)
+    {
+
+        $res = DB::query("SELECT
+        u.id,
+        c.clase_nombre,
+        ac.clase_id, 
+        ac.calificacion,
+        ac.mensaje 
+        from
+            usuarios u
+        inner join alumnos_clases ac on u.id = ac.alumno_id 
+        inner join clases c on ac.clase_id = c.id 
+        where
+            u.id = $id ; ");
+
+        $califiaciones = $res->fetchAll(PDO::FETCH_ASSOC);
+
+
+        return $califiaciones;
+
+              
+    }
+
+    public static function debaja($id)
+    {
+        $res = DB::query("DELETE from alumnos_clases  where  clase_id = $id");
+                  
+    }
+
 }
