@@ -13,7 +13,7 @@ $usuario= $_SESSION["user"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/src/output.css" rel="stylesheet">
-    <title>maesro</title>
+    <title>Alumno</title>
 </head>
 
 <body class="bg bg-gray-100">
@@ -30,7 +30,7 @@ $usuario= $_SESSION["user"];
                 </div>
             <div class=" flex relative m-auto group mr-20  ">
 
-                <span class="justify-end mr-2"><?= $usuario["correo"] ?></span>
+                <span class="justify-end mr-2"><?= $usuario["nombre"] ?> <?= $usuario["apellido"] ?>  </span>
 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 text-gray-400 cursor-pointer">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -38,7 +38,7 @@ $usuario= $_SESSION["user"];
                 <!-- Menú desplegable -->
                 <ul id="menu" class="absolute hidden mt-7 space-y-2 bg-white text-gray-800 text-sm p-2 rounded-lg ">
                     <li><a href="/perfil?id=<?= $usuario["id"] ?>"><img src="/assets/perfil.svg"></img> Perfil</a></li>
-                    <li><a href="/logout"><img src="/assets/logout.svg"></img> Cerrar sesion</a></li>
+                    <li><a href="/logout"><img src="/assets/logout.svg"></img> Logout</a></li>
                 </ul>
             </div>
         </header>
@@ -67,31 +67,41 @@ $usuario= $_SESSION["user"];
                     <li>
                         <p href="#" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
 
-                            <span class="flex-1 ml-3 whitespace-nowrap">Maestro</span>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Alumno</span>
                         </p>
 
                     </li>
                     <li class=" border-b border-white flex items-center p-2 dark:text-gray-900  text-white">
 
-                        <span class="flex-1 ml-3 whitespace-nowrap"><?= $usuario["correo"] ?></span>
+                        <span class="flex-1 ml-3 whitespace-nowrap"><?= $usuario["nombre"] ?> <?= $usuario["apellido"] ?></span>
 
 
                     </li>
                     <li class=" flex items-center p-2 dark:text-gray-900 rounded-lg text-white">
 
-                        <h3 class="flex-1 ml-3 whitespace-nowrap">Menu Maestros</h3>
+                        <h3 class="flex-1 ml-3 whitespace-nowrap">Menu Alumnos</h3>
                           
                 
                     <li>
-                        <a href="/alumnos?id=<?=$usuario["id"]?>" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
+                        <a href="/calificaciones?id=<?=$usuario["id"]?>" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
                             </svg>
-                            <span class="flex-1 ml-3 whitespace-nowrap">Alumnos</span>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Ver calificaciones </span>
                         </a>
                     </li>
               
-                </ul>
+                    <li>
+                        <a href="/administrarClases?id=<?=$usuario["id"]?>" class="flex items-center p-2 dark:text-gray-900 rounded-lg text-white dark:hover:bg-gray-100 hover:bg-gray-700 group">
+                            <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Administrar tus clases </span>
+                        </a>
+                    </li>
+
+
+                </ul>   
             </div>
         </aside>
 

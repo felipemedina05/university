@@ -1,5 +1,6 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/src/model/Clase.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/src/model/Maestro.php";
 
 class ClaseController {
 
@@ -64,7 +65,26 @@ class ClaseController {
         }
     }  
 
-   
+    public static function administrarClases($id)
+    {   
+        $clases = Clase::findClases(2);
+        $maestros = Clase::findId(2);
+        
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/alumno/clases.php";
+        
+    }
+
+    public static function calificaciones($id)
+    {   
+        $calificaciones = Clase::findClases(2);
+        $maestros = Clase::findId(2);
+        
+        include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/alumno/calificaciones.php";
+        
+    }
+    
+
+  
 
 
 }

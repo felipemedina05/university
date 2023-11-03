@@ -29,8 +29,8 @@ class LoginController {
                             header("Location: /admin");
                         } elseif ($data["rol_id" ]  ===2 ) 
                             {
-                                header("Location: /maestro");
-                            } else
+                                header("Location: /maestros");
+                            } elseif($data["rol_id" ]  ===3 )
                                 {
                                     header("Location: /alumno");
 
@@ -43,7 +43,7 @@ class LoginController {
                    
             } 
             
-        
+       
         
     }
  
