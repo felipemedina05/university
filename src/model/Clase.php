@@ -122,7 +122,8 @@ class Clase
         c.clase_nombre,
         ac.clase_id, 
         ac.calificacion,
-        ac.mensaje 
+        ac.mensaje, 
+        ac.id as ac_id
         from
             usuarios u
         inner join alumnos_clases ac on u.id = ac.alumno_id 
@@ -138,10 +139,57 @@ class Clase
               
     }
 
-    public static function debaja($id)
-    {
-        $res = DB::query("DELETE from alumnos_clases  where  clase_id = $id");
-                  
+    public static function debaja($data)
+    {   $id = $data ["ac_id"];
+        $res = DB::query("DELETE from alumnos_clases  where  id = $id");
+        
+
     }
+
+    public static function inscibirlas($id)
+    {
+
+        $res = DB::query("SELECT
+        *
+    from
+        clases c
+    where
+        c.id not in (
+        select
+            ac.clase_id
+        from
+            alumnos_clases ac
+        where
+            ac.alumno_id = $id); ");
+
+        $inscirbirlas = $res->fetchAll(PDO::FETCH_ASSOC);
+
+
+        return $inscirbirlas;
+
+              
+    }
+
+    public static function inscribir($data)
+    {
+        $clases = $data["clases"];
+        $id=$data["id_usuario"];
+
+        for ($i=0; $i < count ($clases) ; $i++) { 
+
+            $materia= $clases[$i];
+
+            $res = DB::query("INSERT INTO university.alumnos_clases
+            (alumno_id, clase_id)
+            VALUES('$id', '$materia'); ");
+           
+        }
+        
+
+      
+
+              
+    }
+    
 
 }

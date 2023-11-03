@@ -82,7 +82,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
             $PermisoController->updatePermiso($_POST);
             break;  
             
-                
+        case '/debaja':
+            $ClaseController->debaja($_POST);
+               
+             break;  
+
+        case '/inscribir':
+            $ClaseController->inscribir($_POST);
+                   
+            break;     
         
         default:
             echo "no se encontro la url por post";
@@ -224,13 +232,10 @@ if ($_SERVER["REQUEST_METHOD"] === "GET")
 
         case '/administrarClases':
             $ClaseController->administrarClases($_GET["id"]);
-          
-            break;  
-            
-        case '/debaja':
-            $ClaseController->debaja($_GET["id"]);
            
             break;  
+            
+        
    
         default:
              echo "no se encontro la url por get";

@@ -68,6 +68,7 @@ class ClaseController {
     public static function administrarClases($id)
     {   
         $calificaciones= Clase::calificaciones($id);
+        $inscibirlas=Clase::inscibirlas($id);
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/alumno/clases.php";
         
         
@@ -77,6 +78,7 @@ class ClaseController {
     {   
         $calificaciones= Clase::calificaciones($id);
         
+        
         include $_SERVER ["DOCUMENT_ROOT"] . "/src/views/alumno/calificaciones.php";
         
     }
@@ -84,10 +86,23 @@ class ClaseController {
     public static function debaja($id)
     {   
         $debaja= Clase::debaja($id);
+        $id_sesion =$id["id_sesion"];
         
-        header("Location: /administrarClases");
+        header("Location: /administrarClases?id=$id_sesion");
         
     }
+
+    public static function inscribir($data)
+    {   
+
+        var_dump($data);
+        $inscribir= Clase::inscribir($data);
+        $id_sesion =$data["id_usuario"];
+        
+        header("Location: /administrarClases?id=$id_sesion"); 
+        
+    }
+
     
 
   

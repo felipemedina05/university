@@ -48,7 +48,7 @@ $usuario = $_SESSION["user"];
             </div>
         </header>
 
-        <aside id="default-sidebar" class="hidden fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+        <aside id="default-sidebar" class=" fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
             <div class="h-full px-3 py-4 overflow-y-auto dark:bg-gray-50 bg-gray-800">
                 <ul class="space-y-2 font-medium">
                     <li class=" border-b border-white">
@@ -143,24 +143,52 @@ $usuario = $_SESSION["user"];
                             <?php foreach ($calificaciones as $alumno) { ?>
                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <?= $alumno["id"] ?>
+                                        <?= $alumno["ac_id"] ?>
                                     </td>
                                     <td class="px-6 py-4">
                                         <?= $alumno["clase_nombre"] ?>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="/debaja?id=<?= $alumno["clase_id"] ?>">
-                                            <img src="/assets/baja.svg"></img>
+                                        <form action="/debaja" method="post">
+                                            <input type="text" name="id_sesion" value="<?= $usuario["id"] ?>" class="hidden"> </input>
+                                            <button type="submit" name="ac_id" value="<?= $alumno["ac_id"] ?>">
+                                                <img src="/assets/baja.svg"></img>
 
-                                        </a>
+                                            </button>
+                                        </form>
                                     </td>
+
+
+
+
+
 
                                 </tr>
                             <?php } ?>
 
 
                         </tbody>
-                    </table>
+
+
+
+
+                </div>
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+                    <form class="space-y-6" action="/inscribir" method="post">
+                        <input class="hidden" name="id_usuario" value="<?= $usuario["id"] ?>"></input>
+                        <select multiple  name="clases[]" class="bg-gray-50 border
+                         border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+                          focus:border-blue-500 block w-[500px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> >
+
+                            <?php foreach ($inscibirlas as $inscribir) { ?>
+                                <option value="<?= $inscribir["id"] ?>"><?= $inscribir["clase_nombre"] ?></option>
+                            <?php } ?>
+
+                        </select>
+
+                        <button type="submit">inscribir</button>
+                    </form>
                 </div>
             </div>
 
